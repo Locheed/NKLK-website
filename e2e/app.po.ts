@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class NsklPage {
+export class NiskalaukausBF4ServersStatisticsPage {
   navigateTo() {
     return browser.get('/');
   }

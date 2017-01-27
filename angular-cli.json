@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.22-1",
-    "name": "nskl"
+    "version": "1.0.0-beta.26",
+    "name": "niskalaukaus-bf4-servers-statistics"
   },
   "apps": [
     {
@@ -28,8 +28,6 @@
       }
     }
   ],
-  "addons": [],
-  "packages": [],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"

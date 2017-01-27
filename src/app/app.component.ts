@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 
+import { StatsService } from './shared/stats.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./_app.component.sass'],
+  providers: [StatsService]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Welcome';
 }

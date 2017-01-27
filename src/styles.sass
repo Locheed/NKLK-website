@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+@import '_vars'
+@import './app/all-stats/_all-stats.component'
+@import './app/home/_home.component'
+@import './app/nav/_nav.component'
+@import './app/stats/_stats.component'
+@import './app/stats-soldiername/_stats-soldiername.component'
+@import './app/_app.component'
+@import './app/scoreboard/_scoreboard.component'
+
+
+// Global styles
+@font-face
+  font-family: BebasNeue
+  src: url(./assets/fonts/BebasNeue.otf)
+body
+  background: $back-color
+  font-family: 'Montserrat', sans-serif
+  font-weight: 400
+.main-wrapper
+  background: $content-container-color
+  width: 960px
+  margin: 0 auto
+
+// Global table styles
+.stats-table
+  border-collapse: collapse
+  font-size: .7rem
+  th, td
+    border: 1px solid #000
+    padding: 5px
+    text-align: center
+  th
+    background: $stats-table-gradient
+    color: #FFF
+  tr
+    &:hover
+      background-color: $stats-hover-color
+  //Alert colors for table data.
+  .alertColor
+    color: $alert-color
+  .warningColor
+    color: $warning-color

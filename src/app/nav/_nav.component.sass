@@ -1,0 +1,59 @@
+@import '../../_vars'
+
+#banner-image
+  -webkit-box-shadow: $navbar-shadow
+  -moz-box-shadow: $navbar-shadow
+  box-shadow: $banner-shadow
+
+.nav-items, .secondary-nav-items
+  background: $navbar-gradient
+  list-style-type: none
+  margin: 0 0 0 0
+  padding: 5px
+  display: flex
+  flex-direction: row
+  flex-grow: 1
+  justify-content: flex-start
+  border:
+    bottom: 1px solid $gold-brown
+    right: 1px solid $gold-brown
+  box-shadow: 1 1 5px
+  -webkit-box-shadow: $navbar-shadow
+  -moz-box-shadow: $navbar-shadow
+  box-shadow: $navbar-shadow
+
+
+  li
+    padding-left: 10px
+  a
+    color: $navbar-links
+    text-decoration: none
+    &:hover
+      color: $gold-brown
+  .active
+    color: red
+
+.nav-items
+  position: relative
+  width: 400px
+  border-radius: 0 0 10px 0
+  z-index: 2
+
+.secondary-nav-items
+  position: absolute
+  width: 350px
+  margin-left: 30px
+  border-top: 0
+  border-radius: 0 0 10px 10px
+  animation: navbar .5s ease-out
+  z-index: 1
+  font-size: 0.85rem
+
+// Animations
+
+@keyframes navbar
+  0%
+    transform: translateY(-10px)
+
+  100%
+    transform: translateY(0)

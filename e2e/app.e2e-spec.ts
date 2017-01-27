@@ -1,10 +1,10 @@
-import { NsklPage } from './app.po';
+import { NiskalaukausBF4ServersStatisticsPage } from './app.po';
 
-describe('nskl App', function() {
-  let page: NsklPage;
+describe('niskalaukaus-bf4-servers-statistics App', function() {
+  let page: NiskalaukausBF4ServersStatisticsPage;
 
   beforeEach(() => {
-    page = new NsklPage();
+    page = new NiskalaukausBF4ServersStatisticsPage();
   });
 
   it('should display message saying app works', () => {
