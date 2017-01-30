@@ -21,8 +21,8 @@ import { NewsComponent } from './home/news/news.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { PostsComponent } from './posts/posts.component';
 import { ScoreboardService } from './scoreboard/scoreboard.service';
-
-//import { SortByPipe } from './shared/sort-by.pipe';
+import { StringFilterPipe } from './shared/filter.pipe';
+import { SortByPipe } from './shared/sort-by.pipe';
 
 
 @NgModule({
@@ -39,8 +39,9 @@ import { ScoreboardService } from './scoreboard/scoreboard.service';
     DiscordwidgetComponent,
     NewsComponent,
     ScoreboardComponent,
-    PostsComponent
-    //SortByPipe
+    PostsComponent,
+    StringFilterPipe,
+    SortByPipe
   ],
   imports: [
     BrowserModule,

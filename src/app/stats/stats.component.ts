@@ -39,6 +39,22 @@ export class StatsComponent implements OnInit {
 
   constructor(private _StatsService: StatsService) { }
 
+  config: string;
+  prefix: string = '-';
+  asc: boolean = true;
+  sortableCol: string;
+
+  sort(event, sortBy) {
+    event.preventDefault();
+    this.sortableCol = sortBy;
+    this.config = this.prefix + sortBy;
+    this.prefix = this.prefix === '-' ? '+' : '-';
+    this.asc = this.prefix === '-' ? true : false;
+    console.log('prefix: ' + this.prefix);
+    console.log('sortBy: ' + sortBy);
+    
+  }
+
 
   onDateChanged(event:any) {
     let date: string = event.formatted;

@@ -15,6 +15,7 @@ export class StatsSoldiernameComponent implements OnInit {
 
   constructor(private _StatsService: StatsService) { }
 
+  
   getByName(soldierName: string) {
     this._StatsService.getBySoldierName(soldierName)
         .subscribe((...stats) => this.stats = stats,

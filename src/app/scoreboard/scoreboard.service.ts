@@ -19,6 +19,18 @@ export class ScoreboardService {
           .catch(this.handleError);
   }
 
+  getTeam1() {
+    return this._http.get('/api/scores/1')
+          .map((response: Response) => response)
+          //.do(data => console.log('All: ' + JSON.stringify(data)))
+          .catch(this.handleError);
+  }
+  getTeam2() {
+    return this._http.get('/api/scores/2')
+          .map((response: Response) => response)
+          //.do(data => console.log('All: ' + JSON.stringify(data)))
+          .catch(this.handleError);
+  }
 
   private handleError(error: Response) {
     console.error(error);
