@@ -1,0 +1,47 @@
+{
+    "founders": [
+        {
+            "nick": "Elant0",
+            "realName": "xxxxx",
+            "role": "Overloard"
+        },
+        {
+            "nick": "DLight007",
+            "realName": "xxxxx",
+            "role": "Midget lover"
+        },
+        {
+            "nick": "XfileFIN",
+            "realName": "xxxxx",
+            "role": "Plugins wizard"
+        },
+        {
+            "nick": "Locheed",
+            "realName": "xxxxx",
+            "role": "Webmaster"
+        } 
+    ],
+
+    "admins": [
+            {
+            "nick": "Elant0",
+            "realName": "xxxxx",
+            "role": "Admin"
+        },
+        {
+            "nick": "Elant0",
+            "realName": "xxxxx",
+            "role": "Admin"
+        },
+        {
+            "nick": "Elant0",
+            "realName": "xxxxx",
+            "role": "Admin"
+        },
+        {
+            "nick": "Elant0",
+            "realName": "xxxxx",
+            "role": "Admin"
+        }
+    ]
+}

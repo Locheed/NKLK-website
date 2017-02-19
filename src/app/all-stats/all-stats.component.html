@@ -24,7 +24,17 @@
       <th><a class="th-sort" href="" (click)="sort($event, 'vehiclesDestroyed')">Vehicles Destroyed</a><span class="arrow" *ngIf="sortableCol === 'vehiclesDestroyed'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
       <th><a class="th-sort" href="" (click)="sort($event, 'timePlayed')">Playtime</a><span class="arrow" *ngIf="sortableCol === 'timePlayed'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
     </thead>
-    <tbody>
+    <tbody *ngIf="isLoading">
+      <tr>
+        <td colspan=15 class="loading">Searching battlerecord archives...</td>
+      </tr>
+      <tr>
+        <td colspan=15 class="loading">
+          <span class="ball"></span>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="!isLoading">
       <tr *ngFor="let stat of stats | orderBy: config | stringFilter: nameFilter | paginate: { id: 'allstats',
                                                     itemsPerPage: 50,
                                                     currentPage: page

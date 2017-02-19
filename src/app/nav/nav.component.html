@@ -4,7 +4,7 @@
     <li><a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
     <li><a [routerLink]="['/scoreboard']" [routerLinkActive]="['active']">SCOREBOARD</a></li>
     <li><a [routerLink]="['/stats/byDate']" [routerLinkActive]="['active']">STATISTICS</a></li>
-    <li><a href="/admins">ADMINS</a></li>
+    <li><a [routerLink]="['/admins']" [routerLinkActive]="['active']">ADMINS</a></li>
   </ul>
   <ul *ngIf="_router.url.includes('/stats/')" class="secondary-nav-items">
     <li><a [routerLink]="['/stats/byDate']" [routerLinkActive]="['active']">Stats by date</a></li>

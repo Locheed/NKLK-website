@@ -21,6 +21,7 @@ export class AllStatsComponent implements OnInit {
   prefix: string = '-';
   asc: boolean = true;
   sortableCol: string;
+  private isLoading: boolean = true;
   
 
 
@@ -39,8 +40,10 @@ export class AllStatsComponent implements OnInit {
 
   ngOnInit() {
     this._StatsService.getByAllTime()
-        .subscribe(stats => this.stats = stats,
-            error => this.errorMessage = <any>error);
+        .subscribe(stats => {
+          this.stats = stats;
+          this.isLoading = false;
+         }, error => this.errorMessage = <any>error);
  }
 
 }

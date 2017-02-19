@@ -1,5 +1,10 @@
 @import '../../_vars'
 
+.loading
+    border: 0
+    padding: 20px
+    font-size: 1.1rem
+    font-family: 'BebasNeue', sans-serif
 .th-sort
     color: #FFF
     text-decoration: none
@@ -30,3 +35,28 @@
         background: rgba(255,255,255,0.5)
         &:focus
             outline-color: $gold-brown
+
+
+// Spinner
+.ball
+    width: 20px
+    height: 20px
+    background-color: $gold-brown
+    border-radius: 50%
+    display: block
+    margin: 0 50%
+    animation: motion 3s ease-in-out infinite
+    padding-top: 0
+    
+    
+@keyframes motion
+  0%
+    transform: translateX(0) scale(1)
+  25%
+    transform: translateX(-50px) scale(0.3)
+  50%
+    transform: translateX(0) scale(1)
+  75%
+    transform: translateX(50px) scale(0.3)
+  100%
+    transform: translateX(0) scale(1)

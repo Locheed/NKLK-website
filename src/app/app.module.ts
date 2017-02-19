@@ -23,6 +23,7 @@ import { PostsComponent } from './posts/posts.component';
 import { ScoreboardService } from './scoreboard/scoreboard.service';
 import { StringFilterPipe } from './shared/filter.pipe';
 import { SortByPipe } from './shared/sort-by.pipe';
+import { AdminsComponent } from './admins/admins.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { SortByPipe } from './shared/sort-by.pipe';
     ScoreboardComponent,
     PostsComponent,
     StringFilterPipe,
-    SortByPipe
+    SortByPipe,
+    AdminsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { SortByPipe } from './shared/sort-by.pipe';
       { path: 'scoreboard', component: ScoreboardComponent },
       { path: 'stats/byDate', component: StatsComponent },
       { path: 'stats/AllTime', component: AllStatsComponent },
-      { path: 'stats/bySoldierName', component: StatsSoldiernameComponent }
+      { path: 'stats/bySoldierName', component: StatsSoldiernameComponent },
+      { path: 'admins', component: AdminsComponent }
     ])
   ],
   providers: [ScoreboardService],

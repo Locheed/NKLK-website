@@ -1,0 +1,28 @@
+<h2 class="title-bar">Founders</h2>
+<div class="admins">
+  <div class="profile-card" *ngFor="let founder of founders" [ngStyle]="{'background-image': 'url(' + founder.flag + ')'}">
+      <div class="img-container">
+        <img [src]=founder.url alt="">
+      </div>
+      <div class="details-container">
+        <span class="title nick">{{founder.nick}}</span>
+        <span class="title name">{{founder.name}}</span>
+        <span class="title role">{{founder.role}}</span>
+      </div>
+  </div>
+</div>
+<hr class="line">
+<h2 class="title-bar">Admins</h2>
+<div class="admins">
+  <div class="profile-card" *ngFor="let admin of admins"  [ngStyle]="{'background-image': 'url(' + admin.flag + ')'}">
+      <div class="img-container">
+        <img [src]=admin.url alt="">
+      </div>
+      <div class="details-container">
+        <span class="title nick">{{admin.nick}}</span>
+        <span class="title name">{{admin.name}}</span>
+        <span class="title role">{{admin.role}}</span>
+      </div>
+  </div>
+</div>
+<p class="disclaimer">Flag backgrounds with the courtesy of <a href="http://www.freeflagicons.com">www.freeflagicons.com</a></p>
