@@ -18,6 +18,8 @@ export class ScoreboardComponent implements OnInit {
   errorMessage: string;
   subscriptionTeam1: any;
   subscriptionTeam2: any;
+  timeNow: number = setTimeout(Math.round(new Date().getTime()/1000), 10*1000);
+
   constructor(private _scoreboardservice: ScoreboardService) { }
 
   ngOnInit() {
@@ -25,10 +27,12 @@ export class ScoreboardComponent implements OnInit {
     this._scoreboardservice.getScoreBoard()
         .subscribe(scores => this.scores = scores,
             error => this.errorMessage = <any>error);*/
+    
 
     this.subscriptionTeam1 = this._scoreboardservice.getTeam1()
         .subscribe(team1 => this.team1 = team1,
             error => this.errorMessage = <any>error);
+            
 
     this.subscriptionTeam2 = this._scoreboardservice.getTeam2()
         .subscribe(team2 => this.team2 = team2,

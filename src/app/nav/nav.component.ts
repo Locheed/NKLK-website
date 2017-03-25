@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./_nav.component.sass']
 })
 export class NavComponent implements OnInit {
+  private daysLeft = 35;
 
   constructor(private _router: Router) { }
 

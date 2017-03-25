@@ -18,22 +18,22 @@
       <th>TK</th>
     </thead>
     <tbody>
-      <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
-          <td>10</td>
-          <td>11</td>
-          <td>12</td>
-          <td>13</td>
-          <td>14</td>
-          <td>15</td>
+      <tr *ngFor="let attacker of team1">
+          <td>{{attacker.alive}}</td>
+          <td>{{attacker.squadId}}</td>
+          <td>{{attacker.rank}}</td>
+          <td>{{attacker.name}}</td>
+          <td>{{attacker.sessionKills}}</td>
+          <td>{{attacker.sessionDeaths}}</td>
+          <td>{{attacker.sessionKills / attacker.sessionDeaths | number: '1.2-2'}}</td>
+          <td>{{(attacker.sessionKills / ((attacker.sessionPlaytime / 60) / 60) / 60) | number: '1.2-2'}}</td>
+          <td>{{attacker.sessionScore}}</td>
+          <td>revs</td>
+          <td>{{attacker.ping}}</td>
+          <td>{{(timeNow - attacker.connecttime)}}</td>
+          <td>{{(attacker.lastswitchtime / 60) / 60 | number: '1.0-0'}}</td>
+          <td>{{attacker.visits}}</td>
+          <td>{{attacker.teamkills}}</td>
         </tr>
 
     </tbody>

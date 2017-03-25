@@ -5,14 +5,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './admins.component.html',
   styleUrls: ['./admins.component.sass']
 })
+
 export class AdminsComponent implements OnInit {
+
+private blog = "http://battlelog.battlefield.com/bf4/user/"
 
   public founders = [
         {
             url: "https://placehold.it/100x150",
             nick: "Elant0",
+            
             realName: "xxxxx",
             role: "Overlord",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -20,6 +25,7 @@ export class AdminsComponent implements OnInit {
             nick: "DLight007",
             realName: "xxxxx",
             role: "Midget lover",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -27,6 +33,7 @@ export class AdminsComponent implements OnInit {
             nick: "XfileFIN",
             realName: "xxxxx",
             role: "Plugins wizard",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -34,6 +41,7 @@ export class AdminsComponent implements OnInit {
             nick: "Locheed",
             realName: "xxxxx",
             role: "Webmaster",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         } 
     ]
@@ -44,6 +52,7 @@ export class AdminsComponent implements OnInit {
             nick: "Minefield78",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -51,6 +60,7 @@ export class AdminsComponent implements OnInit {
             nick: "ZZ-Ka1stu",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -58,6 +68,7 @@ export class AdminsComponent implements OnInit {
             nick: "Moksu-FIN",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -65,6 +76,7 @@ export class AdminsComponent implements OnInit {
             nick: "SamiKill3r",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -72,6 +84,7 @@ export class AdminsComponent implements OnInit {
             nick: "rytkonet",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -79,6 +92,7 @@ export class AdminsComponent implements OnInit {
             nick: "Toebsel",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/switzerland.jpg"
         },
         {
@@ -86,6 +100,7 @@ export class AdminsComponent implements OnInit {
             nick: "Malakatta",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -93,6 +108,7 @@ export class AdminsComponent implements OnInit {
             nick: "DodgeUkko",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -100,6 +116,7 @@ export class AdminsComponent implements OnInit {
             nick: "HardMolli",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -107,6 +124,7 @@ export class AdminsComponent implements OnInit {
             nick: "J0loma",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -114,6 +132,7 @@ export class AdminsComponent implements OnInit {
             nick: "viljamimies",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -121,6 +140,7 @@ export class AdminsComponent implements OnInit {
             nick: "Tokkeli",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -128,6 +148,7 @@ export class AdminsComponent implements OnInit {
             nick: "Luteenvarjo",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -135,6 +156,7 @@ export class AdminsComponent implements OnInit {
             nick: "rivakka",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -142,6 +164,7 @@ export class AdminsComponent implements OnInit {
             nick: "Vuuti",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -149,6 +172,7 @@ export class AdminsComponent implements OnInit {
             nick: "R33_GTRnismo",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/sweden.jpg"
         },
         {
@@ -156,6 +180,7 @@ export class AdminsComponent implements OnInit {
             nick: "Vastaheitto",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -163,6 +188,7 @@ export class AdminsComponent implements OnInit {
             nick: "Retkis",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -170,6 +196,7 @@ export class AdminsComponent implements OnInit {
             nick: "CrAzyW0mAn",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -177,6 +204,7 @@ export class AdminsComponent implements OnInit {
             nick: "EESTI-POLITSEI",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/estonia.jpg"
         },
         {
@@ -184,6 +212,7 @@ export class AdminsComponent implements OnInit {
             nick: "Skaffa247",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/netherlands.jpg"
         },
         {
@@ -191,20 +220,23 @@ export class AdminsComponent implements OnInit {
             nick: "narkoze-LV",
             realName: "xxxxx",
             role: "Admin",
+            status: "ACTIVE",
             flag: "../../assets/img/flags/latvia.jpg"
         },
         {
-            url: "",
-            nick: "",
-            realName: "",
-            role: "",
-            flag: "../../assets/img/flags/european.jpg"
+            url: "https://placehold.it/100x150",
+            nick: "HC_hitsari",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            flag: "../../assets/img/flags/finland.jpg"
         },
         {
             url: "",
             nick: "",
             realName: "",
             role: "",
+            status: "",
             flag: "../../assets/img/flags/european.jpg"
         }
     ]

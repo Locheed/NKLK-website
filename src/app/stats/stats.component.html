@@ -24,7 +24,7 @@
       <th><a class="th-sort" href="" (click)="sort($event, 'timePlayed')">Playtime</a><span class="arrow" *ngIf="sortableCol === 'timePlayed'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
     </thead>
     <tbody>
-      <tr *ngFor="let stat of stats | orderBy: config | paginate: { id: 'allstats',
+      <tr *ngFor="let stat of stats | orderBy: config | paginate: { id: 'dailystats',
                                                     itemsPerPage: 50,
                                                     currentPage: page
                                                   }">
@@ -48,4 +48,18 @@
 
     </tbody>
   </table>
+  <div class="page-controls">
+      <pagination-controls (pageChange)="page = $event"
+                        id="dailystats"
+                        maxSize="9"
+                        directionLinks="true"
+                        autoHide="true"
+                        previousLabel="Previous"
+                        nextLabel="Next"
+                        screenReaderPaginationLabel="Pagination"
+                        screenReaderPageLabel="page"
+                        screenReaderCurrentLabel="You're on page">
+
+      </pagination-controls>
+    </div>
 </div>

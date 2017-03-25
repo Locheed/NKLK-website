@@ -5,9 +5,10 @@
         <img [src]=founder.url alt="">
       </div>
       <div class="details-container">
-        <span class="title nick">{{founder.nick}}</span>
+        <span class="title nick"><a href="{{blog}}{{founder.nick}}" target="_blank">{{founder.nick}}</a></span>
         <span class="title name">{{founder.name}}</span>
         <span class="title role">{{founder.role}}</span>
+        <span *ngIf="founder.status != '' " [style.color]="founder.status === 'ACTIVE' ? '#14FF64' : '#dd0048'"class="title status">{{founder.status}}</span>
       </div>
   </div>
 </div>
@@ -19,9 +20,10 @@
         <img [src]=admin.url alt="">
       </div>
       <div class="details-container">
-        <span class="title nick">{{admin.nick}}</span>
+        <span class="title nick"><a href="{{blog}}{{admin.nick}}" target="_blank">{{admin.nick}}</a></span>
         <span class="title name">{{admin.name}}</span>
         <span class="title role">{{admin.role}}</span>
+        <span *ngIf="admin.status != '' " [style.color]="admin.status === 'ACTIVE' ? '#14FF64' : '#dd0048'"  class="title status">{{admin.status}}</span>
       </div>
   </div>
 </div>

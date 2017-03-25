@@ -21,15 +21,16 @@ export class ScoreboardService {
   }*/
 
   getTeam1() {
-    return Observable.interval(5000).flatMap(() => this._http.get('/api/scores/1')
-    .map((response: Response) => response))
-          // .do(data => console.log('All: ' + JSON.stringify(data)))
+    return Observable.interval(10000).flatMap(() => this._http.get('/api/scores/1')
+    .map((response: Response) => response.json()))
+          //.do(data => console.log('Scores_1_All: ' + JSON.stringify(data)))
           .catch(this.handleError);
   }
   getTeam2() {
-    return Observable.interval(5000).flatMap(() => this._http.get('/api/scores/2')
-    .map((response: Response) => response))
-          // .do(data => console.log('All: ' + JSON.stringify(data)))
+    //return this._http.get('/api/scores/2')
+    return Observable.interval(10000).flatMap(() => this._http.get('/api/scores/2')
+    .map((response: Response) => response.json()))
+           //.do(data => console.log('Scores_2_All: ' + JSON.stringify(data)))
           .catch(this.handleError);
   }
 
