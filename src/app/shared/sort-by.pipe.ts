@@ -25,7 +25,6 @@ export class SortByPipe implements PipeTransform {
 	}
 
     transform(input:any, config:string = '+'): any {
-console.log('this is pipe: ' + config);
         //invalid input given
         if(!input) return input;
 

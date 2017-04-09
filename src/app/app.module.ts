@@ -14,12 +14,10 @@ import { StatsSoldiernameComponent } from './stats-soldiername/stats-soldiername
 import { HomeComponent } from './home/home.component';
 import { Ng2PaginationModule } from 'ng2-pagination';
 import { PaginationControlsDirectiveComponent } from './shared/pagination-controls-directive/pagination-controls-directive.component';
-import { HighlightPipe } from './shared/highlight.pipe';
 import { InfobannerComponent } from './home/infobanner/infobanner.component';
 import { DiscordwidgetComponent } from './home/discordwidget/discordwidget.component';
 import { NewsComponent } from './home/news/news.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
-import { PostsComponent } from './posts/posts.component';
 import { ScoreboardService } from './scoreboard/scoreboard.service';
 import { StringFilterPipe } from './shared/filter.pipe';
 import { SortByPipe } from './shared/sort-by.pipe';
@@ -35,12 +33,10 @@ import { AdminsComponent } from './admins/admins.component';
     StatsSoldiernameComponent,
     HomeComponent,
     PaginationControlsDirectiveComponent,
-    HighlightPipe,
     InfobannerComponent,
     DiscordwidgetComponent,
     NewsComponent,
     ScoreboardComponent,
-    PostsComponent,
     StringFilterPipe,
     SortByPipe,
     AdminsComponent

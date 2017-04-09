@@ -1,4 +1,70 @@
+<div class="serverContainer">
+  <p class="server-info">Map: <span>{{currentMap}}</span></p><p class="server-info">Game mode: <span>{{currentMode}}</span></p><p class="server-info">Round time: <span>{{roundTime | date:'HH:mm:ss'}}</span></p>
+  <p class="server-info">Players: <span>{{currentCountPlayers}} / {{maxPlayers}} ( {{waitingPlayers}} )</span></p>
+</div>
 <div class="statsContainer">
+  <div class="scoreboard-header" [style.display]="hideJoining?'none':'inherit'">
+    <h4 class="team">Joining players: {{countTeam0}}</h4>
+  </div>
+  <table class="stats-table" [style.display]="hideJoining?'none':'table'">
+    <thead>
+      <th>Alive</th>
+      <th>Squad</th>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>K</th>
+      <th>D</th>
+      <th>K/D</th>
+      <th>K/min</th>
+      <th>Score</th>
+      <th>Ping</th>
+      <th>Playtime</th>
+      <th>Switched</th>
+      <th>Visits</th>
+      <th>TK</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let joining of team0 | orderBy: ['-sessionScore']">
+          <td *ngIf="joining.alive == false" class="wolf-skull" ><img src="../../assets/img/icons/skull.png" alt="R.I.P" title="R.I.P"></td>
+          <td *ngIf="joining.alive == true && joining.country == 'na'"><img src="../../assets/img/flags/code/na.gif" alt="Country: ?"></td>
+          <td *ngIf="joining.alive == true && joining.country != 'na'" ><img src="http://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-283-20170323/public/common/flags/{{joining.country}}.gif" alt="{{joining.country}} : {{joining.ip}}" title="{{joining.country}} : {{joining.ip}}"></td>
+          <td *ngIf="joining.squadId == 0" class="wolf-skull" ><img src="../../assets/img/icons/wolf.png"></td>
+          <td *ngIf="joining.squadId == 1">Alpha</td>
+          <td *ngIf="joining.squadId == 2">Beta</td>
+          <td *ngIf="joining.squadId == 3">Charlie</td>
+          <td *ngIf="joining.squadId == 4">Delta</td>
+          <td *ngIf="joining.squadId == 5">Echo</td>
+          <td *ngIf="joining.squadId == 6">Foxtrot</td>
+          <td *ngIf="joining.squadId == 7">Golf</td>
+          <td *ngIf="joining.squadId == 8">Hotel</td>
+          <td *ngIf="joining.squadId == 9">Indy</td>
+          <td *ngIf="joining.squadId == 10">Juliet</td>
+          <td>{{joining.rank}}</td>
+          <td>{{joining.name}}</td>
+          <td>{{joining.sessionKills}}</td>
+          <td>{{joining.sessionDeaths}}</td>
+          <td>{{joining.sessionKills / joining.sessionDeaths | number: '1.2-2'}}</td>
+          <td>{{joining.sessionKills / (joining.roundTimeSeconds / 60) | number: '1.2-2'}}</td>
+          <td>{{joining.sessionScore}}</td>
+          <td>{{joining.ping}}</td>
+          <td>{{((timeNow - joining.connecttime) - 7860) * 1000  | date:'HH:mm:ss'}}</td>
+          <td>{{((timeNow - joining.lastswitchtime) - 7860) * 1000 | date:'HH:mm:ss'}}</td>
+          <td>{{joining.visits}}</td>
+          <td>{{joining.teamkills}}</td>
+          <td>
+            <span class="icons"><a href="{{blogUrl}}{{joining.name}}" target="_blank"><img src="../../assets/img/icons/blog_icon.png" alt="Battleblog" title="Battlelog"></a></span>
+            <span class="icons"><a href="{{metaBansUrl}}{{joining.name}}" target="_blank"><img src="../../assets/img/icons/metabans_icon.png" alt="MetaBans" title="MetaBans"></a></span>
+            <span class="icons"><a href="{{fairplayUrl}}{{joining.name}}" target="_blank" alt="24/7 Fairplay"><img src="../../assets/img/icons/fairplay_icon.png" alt="24/7 Fairplay" title="24/7 Fairplay"></a></span>
+            <span class="icons"><a href="{{istatsUrlFirst}}{{joining.name}}{{istatsUrlSec}}" target="_blank"><img src="../../assets/img/icons/istats_icon.png" alt="I-Stats" title="I-Stats"></a></span>
+          </td>
+        </tr>
+
+    </tbody>
+  </table>
+  <div class="scoreboard-header">
+    <h4 class="team">Attackers: {{countTeam1}} Players</h4><h4 class="tickets">Tickets: {{tickets}} / {{ticketsMax}} </h4>
+  </div>
   <table class="stats-table">
     <thead>
       <th>Alive</th>
@@ -10,30 +76,116 @@
       <th>K/D</th>
       <th>K/min</th>
       <th>Score</th>
-      <th>Revives</th>
       <th>Ping</th>
       <th>Playtime</th>
       <th>Switched</th>
       <th>Visits</th>
       <th>TK</th>
+      <th>Action</th>
     </thead>
+    <tbody *ngIf="isLoading">
+      <tr>
+        <td colspan=15 class="loading">Fetching players...</td>
+      </tr>
+      <tr>
+        <td colspan=15 class="loading">
+          <span class="ball"></span>
+        </td>
+      </tr>
+    </tbody>
     <tbody>
-      <tr *ngFor="let attacker of team1">
-          <td>{{attacker.alive}}</td>
-          <td>{{attacker.squadId}}</td>
+      <tr *ngFor="let attacker of team1 | orderBy: ['-sessionScore']">
+          <td *ngIf="attacker.alive == false" class="wolf-skull" ><img src="../../assets/img/icons/skull.png" alt="R.I.P" title="R.I.P"></td>
+          <td *ngIf="attacker.alive == true && attacker.country == 'na'"><img src="../../assets/img/flags/code/na.gif" alt="Country: ?"></td>
+          <td *ngIf="attacker.alive == true && attacker.country != 'na'" ><img src="http://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-283-20170323/public/common/flags/{{attacker.country}}.gif" alt="{{attacker.country}} : {{attacker.ip}}" title="{{attacker.country}} : {{attacker.ip}}"></td>
+          <td *ngIf="attacker.squadId == 0" class="wolf-skull" ><img src="../../assets/img/icons/wolf.png"></td>
+          <td *ngIf="attacker.squadId == 1">Alpha</td>
+          <td *ngIf="attacker.squadId == 2">Beta</td>
+          <td *ngIf="attacker.squadId == 3">Charlie</td>
+          <td *ngIf="attacker.squadId == 4">Delta</td>
+          <td *ngIf="attacker.squadId == 5">Echo</td>
+          <td *ngIf="attacker.squadId == 6">Foxtrot</td>
+          <td *ngIf="attacker.squadId == 7">Golf</td>
+          <td *ngIf="attacker.squadId == 8">Hotel</td>
+          <td *ngIf="attacker.squadId == 9">Indy</td>
+          <td *ngIf="attacker.squadId == 10">Juliet</td>
           <td>{{attacker.rank}}</td>
           <td>{{attacker.name}}</td>
           <td>{{attacker.sessionKills}}</td>
           <td>{{attacker.sessionDeaths}}</td>
           <td>{{attacker.sessionKills / attacker.sessionDeaths | number: '1.2-2'}}</td>
-          <td>{{(attacker.sessionKills / ((attacker.sessionPlaytime / 60) / 60) / 60) | number: '1.2-2'}}</td>
+          <td [ngClass] = "{'warningColorBoard' : attacker.sessionKills / (attacker.roundTimeSeconds / 60) >= warningMin && attacker.sessionKills / (attacker.roundTimeSeconds / 60) <= warningMax, 'alertColorBoard' : attacker.sessionKills / (attacker.roundTimeSeconds / 60) >= alertMin && attacker.sessionKills / (attacker.roundTimeSeconds / 60) <= alertMax}">{{attacker.sessionKills / (attacker.roundTimeSeconds / 60) | number: '1.2-2'}}</td>
           <td>{{attacker.sessionScore}}</td>
-          <td>revs</td>
           <td>{{attacker.ping}}</td>
-          <td>{{(timeNow - attacker.connecttime)}}</td>
-          <td>{{(attacker.lastswitchtime / 60) / 60 | number: '1.0-0'}}</td>
+          <td>{{((timeNow - attacker.connecttime) - 7860) * 1000  | date:'HH:mm:ss'}}</td>
+          <td>{{((timeNow - attacker.lastswitchtime) - 7860) * 1000 | date:'HH:mm:ss'}}</td>
           <td>{{attacker.visits}}</td>
           <td>{{attacker.teamkills}}</td>
+          <td>
+            <span class="icons"><a href="{{blogUrl}}{{attacker.name}}" target="_blank"><img src="../../assets/img/icons/blog_icon.png" alt="Battlelog" title="Battlelog"></a></span>
+            <span class="icons"><a href="{{metaBansUrl}}{{attacker.name}}" target="_blank"><img src="../../assets/img/icons/metabans_icon.png" alt="MetaBans" title="MetaBans"></a></span>
+            <span class="icons"><a href="{{fairplayUrl}}{{attacker.name}}" target="_blank"><img src="../../assets/img/icons/fairplay_icon.png" alt="24/7 Fairplay" title="24/7 Fairplay"></a></span>
+            <span class="icons"><a href="{{istatsUrlFirst}}{{attacker.name}}{{istatsUrlSec}}" target="_blank"><img src="../../assets/img/icons/istats_icon.png" alt="I-Stats" title="I-Stats"></a></span>
+          </td>
+        </tr>
+
+    </tbody>
+  </table>
+  <div class="scoreboard-header">
+    <h4 class="team">Defenders: {{countTeam2}} Players</h4><h4 class="tickets">Bases: {{bases}} / {{basesMax}}</h4>
+  </div>
+  <table class="stats-table">
+    <thead>
+      <th>Alive</th>
+      <th>Squad</th>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>K</th>
+      <th>D</th>
+      <th>K/D</th>
+      <th>K/min</th>
+      <th>Score</th>
+      <th>Ping</th>
+      <th>Playtime</th>
+      <th>Switched</th>
+      <th>Visits</th>
+      <th>TK</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let defender of team2 | orderBy: ['-sessionScore']">
+          <td *ngIf="defender.alive == false"  class="wolf-skull" ><img src="../../assets/img/icons/skull.png" alt="R.I.P" title="R.I.P"></td>
+          <td *ngIf="defender.alive == true && defender.country == 'na'"><img src="../../assets/img/flags/code/na.gif" alt="Country: ?"></td>
+          <td *ngIf="defender.alive == true && defender.country != 'na'" ><img src="http://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-283-20170323/public/common/flags/{{defender.country}}.gif" alt="{{defender.country}} : {{defender.ip}}" title="{{defender.country}} : {{defender.ip}}"></td>
+          <td *ngIf="defender.squadId == 0" class="wolf-skull" ><img src="../../assets/img/icons/wolf.png"></td>
+          <td *ngIf="defender.squadId == 1">Alpha</td>
+          <td *ngIf="defender.squadId == 2">Beta</td>
+          <td *ngIf="defender.squadId == 3">Charlie</td>
+          <td *ngIf="defender.squadId == 4">Delta</td>
+          <td *ngIf="defender.squadId == 5">Echo</td>
+          <td *ngIf="defender.squadId == 6">Foxtrot</td>
+          <td *ngIf="defender.squadId == 7">Golf</td>
+          <td *ngIf="defender.squadId == 8">Hotel</td>
+          <td *ngIf="defender.squadId == 9">Indy</td>
+          <td *ngIf="defender.squadId == 10">Juliet</td> 
+          <td>{{defender.rank}}</td>
+          <td>{{defender.name}}</td>
+          <td>{{defender.sessionKills}}</td>
+          <td>{{defender.sessionDeaths}}</td>
+          <td>{{defender.sessionKills / defender.sessionDeaths | number: '1.2-2'}}</td>
+          <td [ngClass] = "{'warningColorBoard' : defender.sessionKills / (defender.roundTimeSeconds / 60) >= warningMin && defender.sessionKills / (defender.roundTimeSeconds / 60) <= warningMax, 'alertColorBoard' : defender.sessionKills / (defender.roundTimeSeconds / 60) >= alertMin && defender.sessionKills / (defender.roundTimeSeconds / 60) <= alerMax}">{{defender.sessionKills / (defender.roundTimeSeconds / 60) | number: '1.2-2'}}</td>
+          <td>{{defender.sessionScore}}</td>
+          <td>{{defender.ping}}</td>
+          <td>{{((timeNow - defender.connecttime) - 7860) * 1000  | date:'HH:mm:ss'}}</td>
+          <td>{{((timeNow - defender.lastswitchtime) - 7860) * 1000 | date:'HH:mm:ss'}}</td>
+          <td>{{defender.visits}}</td>
+          <td>{{defender.teamkills}}</td>
+          <td>
+            <span class="icons"><a href="{{blogUrl}}{{defender.name}}" target="_blank"><img src="../../assets/img/icons/blog_icon.png" alt="Battlelog" title="Battlelog"></a></span>
+            <span class="icons"><a href="{{metaBansUrl}}{{defender.name}}" target="_blank"><img src="../../assets/img/icons/metabans_icon.png" alt="MetaBans" title="MetaBans"></a></span>
+            <span class="icons"><a href="{{fairplayUrl}}{{defender.name}}" target="_blank"><img src="../../assets/img/icons/fairplay_icon.png" alt="24/7 Fairplay" title="24/7 Fairplay"></a></span>
+            <span class="icons"><a href="{{istatsUrlFirst}}{{defender.name}}{{istatsUrlSec}}" target="_blank"><img src="../../assets/img/icons/istats_icon.png" alt="I-Stats" title="I-Stats"></a></span>
+          </td>
         </tr>
 
     </tbody>

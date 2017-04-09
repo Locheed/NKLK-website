@@ -40,8 +40,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# temporal ignore
-/server
-/routes
-/model
-server.js
+# apikeys ignore
+keys.js

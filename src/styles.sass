@@ -32,6 +32,12 @@ a
     color: $hovered-link
   &:active
     color: $active-link
+//Statsboards sorting links coloring
+.th-sort
+      color: $sorting-link !important
+      text-decoration: none
+      &:hover
+          color: $gold-brown !important
 
 // Global table styles
 .stats-table
@@ -52,3 +58,16 @@ a
     color: $alert-color
   .warningColor
     color: $warning-color
+  .alertColorBoard
+    background-color: $alert-color
+    color: #FFF
+  .warningColorBoard
+    background-color: $warning-color
+    color: #FFF
+
+  // Loading animation
+  .loading
+    border: 0
+    padding: 20px
+    font-size: 1.1rem
+    font-family: 'BebasNeue', sans-serif
