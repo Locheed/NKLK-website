@@ -6,9 +6,10 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ## Features
 - Main home page for guide to join our platoon or server.
-- Live server details page. (todo)
-- Live scoreboard for players on server. (todo)
+- Live server details.
+- Live scoreboard for players on server.
 - Statistic page (Search by soldier name, by date or get all-time stats).
+- Admins listing page with a profile pictures.
 
 ## Technical data
 
