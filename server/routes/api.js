@@ -13,16 +13,6 @@ mongoose.connect('mongodb://localhost:27017/nklk');
 
 const app = express();
 
-/*
-const API = {
-  "APIKEY"          : "LebJTf45d8pjVFgy1cF7qfPjmFwJbSqL",
-  "API_BASE_URL"    : "http://37.187.25.126:8090/stats_api?server_id=45734&apikey=",
-  "STATS_API_URL"   : "&action=getPlayers&offset=0&count=100&options=eaguid,pbguid,gzip",
-  "PLAYER_API_URL"  : "&action=serverPlayerlist",
-  "XFILE_APIKEY"    : "NWNvRXZKeU5OQzdYJkEqQXJuTWM3RFRuQnlNYlNab2g=",
-  "XFILE_SERVER"    : "http://battlelogstatsapi.azurewebsites.net/api/Stats/getCurrentData?api_key="
-};*/
-
 // Make random string for hash
 function makeid(text)
 {
