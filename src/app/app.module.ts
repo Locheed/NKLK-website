@@ -49,7 +49,6 @@ import { AdminsComponent } from './admins/admins.component';
     Ng2PaginationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
-      { path: 'posts', component: PostsComponent },
       { path: 'scoreboard', component: ScoreboardComponent },
       { path: 'stats/byDate', component: StatsComponent },
       { path: 'stats/AllTime', component: AllStatsComponent },
