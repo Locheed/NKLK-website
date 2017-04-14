@@ -27,10 +27,21 @@
         text-transform: uppercase
 .stats-table
     width: 100%
+    .small-screen
+        @include bp-small-3
+            display: none
+    .mobile-screen
+        @include bp-small
+            display: none
 
-    .wolf-skull
+    .wolf
         padding: 2px 5px
-
+        @include bp-small-3
+            display: none
+        @include bp-small
+            display: none
+    .skull
+        padding: 2px 5px
     .icons
         img
             width: 16px

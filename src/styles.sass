@@ -23,6 +23,12 @@ body
   background: $content-container-color
   width: 960px
   margin: 0 auto
+  @include bp-med
+    width: 748px
+  @include bp-small-2
+    width: 476px
+  @include bp-small
+    width: 360px
 
 // Global link colors
 a

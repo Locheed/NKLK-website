@@ -13,6 +13,12 @@
     justify-content: space-between
     margin: 0 120px 40px 120px
     flex-wrap: wrap
+    @include bp-small-2
+        margin: 0 0 40px 0
+        justify-content: center
+    @include bp-small
+        margin: 0 0 40px 0
+        justify-content: center
     .profile-card
         background-repeat: no-repeat
         background-size: cover 
@@ -24,6 +30,10 @@
         -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.50)
         -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.50)
         box-shadow: 2px 2px 5px 0px rgba(115, 139, 215,0.30)
+        @include bp-small-2
+            margin-right: 10px
+        @include bp-small
+            margin-right: 5px
         .opaque
             filter: opacity(0.3)
         .offline

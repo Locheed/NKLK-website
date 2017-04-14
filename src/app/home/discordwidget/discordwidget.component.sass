@@ -1,3 +1,17 @@
+@import '../../../_vars'
+
 .discord
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
   border-radius: 5px
+  @include bp-med
+    margin:
+      top: 0
+      bottom: 30px
+    height: 300px
+    width: 450px
+  @include bp-small-2
+    height: 200px
+    width: 350px
+  @include bp-small
+    width: 320px
+  

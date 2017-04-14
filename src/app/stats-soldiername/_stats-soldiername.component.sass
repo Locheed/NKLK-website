@@ -1,5 +1,11 @@
 @import '../../_vars'
 
+.small-screen .mobile-screen
+  @include bp-small-3
+    display: none
+  @include bp-med
+    display: none
+  
 .searchbar
   display: flex
   margin-bottom: 10px
@@ -16,3 +22,27 @@
   text-align: center
   border: 0
   font-weight: 600
+
+// Spinner
+.ball
+    width: 20px
+    height: 20px
+    background-color: $gold-brown
+    border-radius: 50%
+    display: block
+    margin: 0 50%
+    animation: motion 3s ease-in-out infinite
+    padding-top: 0
+    
+    
+@keyframes motion
+  0%
+    transform: translateX(0) scale(1)
+  25%
+    transform: translateX(-50px) scale(0.3)
+  50%
+    transform: translateX(0) scale(1)
+  75%
+    transform: translateX(50px) scale(0.3)
+  100%
+    transform: translateX(0) scale(1)

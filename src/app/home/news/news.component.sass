@@ -16,8 +16,13 @@ h4
 .join-container
   margin-left: 75px
   width: 600px
-
-
+  @include bp-small-2
+    width: 450px
+    margin-left: 0
+  @include bp-small
+    width: 320px
+    margin-left: 0
+  
 
 .join-list
   list-style-type: none
@@ -38,6 +43,8 @@ hr
   border: 0
   width: 450px
   margin-left: 0
+  @include bp-small
+    width: 320px
 
 .callToAction
   display: block
