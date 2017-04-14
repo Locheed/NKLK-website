@@ -15,21 +15,23 @@ export class AdminsComponent implements OnInit {
 private subscriptionPlayers: any;
 private playersinfo: any = [];
 private errorMessage: string;
-public adminsPlaying: any = [];
+private playersPlaying: any = [];
 private nick: string;
 private idNum: string;
+private playingTitle: string;
 
 private blog = "http://battlelog.battlefield.com/bf4/user/"
 
-  public founders = [
+
+private founders = [
         {
             url: "../../assets/img/profiles/elanto.gif",
             nick: "Elant0",
-            
             realName: "xxxxx",
             role: "Overlord",
             status: "ACTIVE",
-            playing: true,
+            playing: false,
+            playingTitle: " is offline",
             idNum: "182315421",
             flag: "../../assets/img/flags/finland.jpg"
         },
@@ -62,10 +64,10 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             playing: false,
             idNum: "218914927",
             flag: "../../assets/img/flags/finland.jpg"
-        } 
-    ]
+        }
+    ];
 
-    public admins = [
+private admins = [
           {
             url: "../../assets/img/profiles/noprofile.jpg",
             nick: "Minefield78",
@@ -73,17 +75,19 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "1055867487",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "ZZ-Ka1stu",
+            nick: "95-Ka1stu",
             realName: "xxxxx",
             role: "Admin",
             status: "M I A",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "366083000",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -93,7 +97,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "356382977",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -103,7 +108,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "M I A",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "501410015",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -113,7 +119,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "362333041",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -123,7 +130,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "M I A",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "766030149",
             flag: "../../assets/img/flags/switzerland.jpg"
         },
         {
@@ -133,17 +141,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "M I A",
             playing: false,
-            idNum: "",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "DodgeUkko",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "354439187",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -153,7 +152,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "505751513",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -163,7 +163,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "M I A",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "902250816",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -173,7 +174,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "277958456",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -183,7 +185,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "902197558",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -193,7 +196,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "366322278",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -203,7 +207,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "381166651",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -213,7 +218,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "590369041",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -223,7 +229,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "354025805",
             flag: "../../assets/img/flags/sweden.jpg"
         },
         {
@@ -233,7 +240,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "188907812",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -243,7 +251,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "354482235",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -253,7 +262,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "357568163",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -263,7 +273,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "1057594252",
             flag: "../../assets/img/flags/estonia.jpg"
         },
         {
@@ -273,7 +284,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "997550639",
             flag: "../../assets/img/flags/netherlands.jpg"
         },
         {
@@ -283,27 +295,19 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "M I A",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "987294553",
             flag: "../../assets/img/flags/latvia.jpg"
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "HC_hitsari",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            idNum: "",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "Nuukeri",
+            nick: "-RK62-Nuukeri",
             realName: "",
             role: "Admin",
             status: "M I A",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "368721484",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -313,7 +317,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "354678995",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -323,7 +328,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "M I A",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "38319094",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -333,7 +339,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "M I A",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "345933780",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -343,7 +350,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "353967569",
             flag: "../../assets/img/flags/belgium.jpg"
         },
         {
@@ -353,7 +361,8 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "372769934",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -363,31 +372,31 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
             role: "Admin",
             status: "ACTIVE",
             playing: false,
-            idNum: "",
+            playingTitle: " is offline",
+            idNum: "352465266",
             flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "",
-            nick: "",
-            realName: "",
-            role: "",
-            status: "",
-            playing: false,
-            idNum: "",
-            flag: "../../assets/img/flags/european.jpg"
-        },
-        {
-            url: "",
-            nick: "",
-            realName: "",
-            role: "",
-            status: "",
-            playing: false,
-            idNum: "",
-            flag: "../../assets/img/flags/european.jpg"
         }
-    ]
-  
+      /*  {
+            url: "",
+            nick: "",
+            realName: "",
+            role: "",
+            status: "",
+            playing: false,
+            idNum: "",
+            flag: "../../assets/img/flags/european.jpg"
+        },
+        {
+            url: "",
+            nick: "",
+            realName: "",
+            role: "",
+            status: "",
+            playing: false,
+            idNum: "",
+            flag: "../../assets/img/flags/european.jpg"
+        }*/
+    ];
 
   constructor(private _scoreboardservice: ScoreboardService) { }
 
@@ -395,48 +404,42 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
     this.subscriptionPlayers = this._scoreboardservice.serverInfo()
         .subscribe(playersinfo => {
             this.playersinfo = playersinfo;
-
-           let index = Object.keys(this.playersinfo.teamInfo);
+            this.playersPlaying = [];    // Reset playersPlaying array on every fetch
+           const index = Object.keys(this.playersinfo.teamInfo);    // Trick to access numeric Object.keys.
            index.forEach(n => {
-               let playerId = Object.keys(this.playersinfo.teamInfo[n].players);
+               const playerId = Object.keys(this.playersinfo.teamInfo[n].players);
                playerId.forEach(m => {
-                   this.founders.forEach(founder => { 
-                       if (founder.idNum == m) {
-                           console.log("true:" + m + "founder: " + founder.idNum);
-                          founder.playing = true; 
-                       } else {
-                           console.log("false:" + m + "founder: " + founder.idNum);
-                          // founder.playing = false;
-                       }
-                    
+                   this.playersPlaying.indexOf(parseInt(m, 10)) === -1 ? this.playersPlaying.push(m) : console.log("This id already exists");
+                   this.founders.forEach(founder => {
+                       if (this.playersPlaying.indexOf(founder.idNum) != -1) {
+                           founder.playing = true;
+                           this.playingTitle = " is playing on Niskalaukaus K-18";
+                          } else { 
+                              founder.playing = false;
+                              this.playingTitle = " is offline";
+                        }
                     });
-                       
-                   
-                    console.log(this.playersinfo.teamInfo[n].players[m].name);
-                    console.log("Players on server: " + m);
-
-                  // this.adminsPlaying.indexOf(this.playersinfo.teamInfo[n].players[m].name) === -1 ? this.adminsPlaying.push(this.playersinfo.teamInfo[n].players[m].name) : console.log("This item already exists");
-                  //this.adminsPlaying.splice(1,1);
-                   //console.log("Playing: " + this.adminsPlaying);
+                    this.admins.forEach(admin => {
+                       if (this.playersPlaying.indexOf(admin.idNum) != -1) {
+                           admin.playing = true;
+                           admin.playingTitle = " is playing on Niskalaukaus K-18";
+                          } else { 
+                              admin.playing = false;
+                              admin.playingTitle = " is offline";
+                        }
+                    });
+                   // Debug console.log("Players in array: " + this.adminsPlaying);
                });
            });
         },
             error => this.errorMessage = <any>error);
-    
   }
 
   ngDoCheck() {
-      
-      if (this.founders[3].idNum === this.idNum) {
-          
-          console.log("Haha: " + this.founders[3].nick);
-          this.founders[3].playing = true;
-        }
+
   }
-  
-  
+
   ngOnDestroy() {
-    // Deprecated and abandoned API from RConnet
     this.subscriptionPlayers.unsubscribe();
   }
 

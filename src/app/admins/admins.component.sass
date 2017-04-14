@@ -27,22 +27,20 @@
         .opaque
             filter: opacity(0.3)
         .offline
-            background-color: #FF1177
+            //background-color: #FF1177
+            background-color: #C44B4B
             display: block;
-            height: 20px
-            width: 20px
+            height: 12px
+            width: 12px
             border-radius: 50%
             position: absolute
             top: 4px
             right: 4px
-        .online
-            -webkit-transition: all 0.5s
-            -moz-transition: all 0.5s
-            transition: all 0.5s
+        .online            
             background-color: #B6FF00
-            -webkit-animation: online 1.5s ease-in-out infinite alternate
-            -moz-animation: online 1.5s ease-in-out infinite alternate
-            animation: online 1.5s ease-in-out infinite alternate
+            -webkit-animation: online 1.0s ease-in-out infinite alternate
+            -moz-animation: online 1.0s ease-in-out infinite alternate
+            animation: online 1.0s ease-in-out infinite alternate
         .img-container
             border: 2px solid #999
             border-radius: 8px
@@ -91,6 +89,8 @@
         color: $gold_brown
         text-decoration: none
 
+
+// Animation for online lights
 @-webkit-keyframes online
   from
     box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #B6FF00, 0 0 70px #B6FF00, 0 0 80px #B6FF00, 0 0 100px #B6FF00, 0 0 150px #B6FF00

@@ -9,8 +9,8 @@ import { StatsService } from '../shared/stats.service';
 })
 export class StatsSoldiernameComponent implements OnInit {
 
-  pageTitle: string = "Stats by Soldier Name";
-  errorMessage: string;
+  private pageTitle: string = "Stats by Soldier Name";
+  private errorMessage: string;
   stats: IStats[];
 
   constructor(private _StatsService: StatsService) { }

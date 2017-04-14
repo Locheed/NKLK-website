@@ -39,7 +39,7 @@ let genAPI;
   return genAPI;
 })();
 
-// XFILES SERVER API
+// XFILES server api request
 
 router.route('/serverinfo').get(function(req,res) {
     request.post({
@@ -51,9 +51,8 @@ router.route('/serverinfo').get(function(req,res) {
       //},
     }, function (error, response, body) {
         if (!error && response.statusCode === 200) {
-          //body = JSON.parse(body);
           res.json(body.data.snapshot);
-/*
+/* Small test to try to mix apidata to one table. Todo.
           for (let player of body.data.snapshot.teamInfo) {
                 Player.findOneAndUpdate(
                     { name: body.data.snapshot.teaminfo[i].players[j].name },
@@ -79,8 +78,6 @@ router.route('/serverinfo').get(function(req,res) {
           console.log("Something went wrong fetching serverinfo" + error);
         }
     });
-    
-    //console.log(req);
 });
 
 /* GET api listing. */
@@ -97,14 +94,10 @@ router.route('/scores/:id').get(function(req, res) {
   
 });
 
-//router.get('/scores', (req, res, next) => {
   function makeRequest() {
-
-  //let interval = setInterval(function() {
       request({
           url: genAPI,
           json: true
-          
           //gzip: true
       }, function (error, response, body) {
 
@@ -117,15 +110,11 @@ router.route('/scores/:id').get(function(req, res) {
                   
                   setData(body);
                   }
-          }); 
-          //response.end();      
+          });      
           } else {
               console.log("Something went wrong with polling: " + error);
-
               } 
-      }); //request.end();
- // }, 10*1000);
-//next();
+      });
   }
 
 
@@ -135,8 +124,9 @@ function setData(body) {
     for( let item of body.datalist) {
       console.log(item);
       
+      // Get location data by ip address.
       let geo = {};
-      if (item.ip != null && item.ip != '') {
+      if (item.ip !== null && item.ip !== '') {
         geo = geoip.lookup(item.ip.toString());  
       } else {
          geo = {
@@ -177,119 +167,14 @@ function setData(body) {
               console.log("Update failed." + err);
             } else {
               console.log("saved: " + model);
-              //createNewModel();
             }
         }
       );
-      /*function createNewModel() {
-        let player = new Player(item);
-        player.save(function (err) {
-            if (err) { 
-                console.log(err);
-            }
-            else {
-                console.log("Saved item: " + player);
-            }
-        });
-      }*/
-    
     }
   } else {
-    //clearInterval(interval);
     console.log("Server is empty.");
   }
-
 }
-
-
-/*
-
-router.get("/scoreboard", (req,res,next)  => {
-    request(genAPI, (err, res, body) => {
-
-      if (!err && res.statusCode == 200) {
-          let json = JSON.parse(body);
-          console.log(json);
-          return res;
-      }
-    });
-    res.json();
-  });
-
-
-        const db = new mongoOp();
-        let response = {};
-
-        //db.rank = res.body.rank;
-        db.save(function (err) {
-        // save() will run insert() command of MongoDB.
-        // it will add new data in collection.
-            if(err) {
-                response = {"error" : true,"message" : "Error adding data"};
-            } else {
-                response = {"error" : false,"message" : "Data added"};
-            }
-            res.json(response);
-        });
-
-
-// Get all scores from MongoDB
-router.get("/scoreboar", (req, res, next) => {
-    let response = {};
-    mongoOp.find({}, (err,data) => {
-      if(err) {
-        response = {"error" : true,"message" : "Error fetching data"};
-      } else {
-        response = {"error" : false,"message" : data};
-      }
-      res.json(response);
-    });
-  });
-
-
-
-// Get all posts
-let response;
-router.get('/scores', (req, res) => {
-  // Get posts from the mock api
-  // This should ideally be replaced with a service that connects to MongoDB
-  axios.get(`${genAPI}`)
-  .then(scores => {
-    res.status(200).json(scores.data);
-    console.log("Datalist is " + scores.data.datalist.length);
-    if (scores.data.datalist[0] != null && scores.data.datalist.length > 0) {
-      /*for( let item of scores.data.datalist) {
-        createPlayers(item);
-
-      }
-
-    }
-    //console.log(req.query);
-    //console.log(scores.data);
-
-    })
-    .catch(error => {
-      res.status(500).send(error)
-    });
-    //console.log("req.body: " + req.body);
-
-});
-
-function createPlayers(item) {
-  if (!player.find({ name: item.name })) {
-    let playerAdd = new player();
-    }
-    playerAdd.name = [item.name];
-    player.save();
-};
-
-router.post('/fetch', (req, res) => {
-
-  let data = new player(response.datalist);
-  data.save();
-
-});
-*/
 
 
 module.exports = router;

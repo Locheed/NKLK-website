@@ -8,21 +8,21 @@ import { StatsService } from '../shared/stats.service';
   templateUrl: './all-stats.component.html',
   styleUrls: ['./_all-stats.component.sass'],
   changeDetection: ChangeDetectionStrategy.Default
-  
+
 })
 export class AllStatsComponent implements OnInit {
 
-  pageTitle: string = 'Server statistics All';
-  errorMessage: string;
+  private pageTitle: string = 'Server statistics All';
+  private errorMessage: string;
   @Input() stats: IStats[];
-  page: number = 1;
-  nameFilter: string;
-  config: string;
-  prefix: string = '-';
-  asc: boolean = true;
-  sortableCol: string;
-  private isLoading: boolean = true;
-  
+  private page: number = 1;
+  private nameFilter: string;
+  private config: string;
+  private prefix: string = '-';
+  private asc: boolean = true;
+  private sortableCol: string;
+  private isLoading = true;
+
 
 
   constructor(private _StatsService: StatsService) { }
@@ -35,7 +35,7 @@ export class AllStatsComponent implements OnInit {
     this.asc = this.prefix === '-' ? true : false;
     console.log('prefix: ' + this.prefix);
     console.log('sortBy: ' + sortBy);
-    
+
   }
 
   ngOnInit() {

@@ -15,7 +15,7 @@ export class StatsService {
   private _statsByYearUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByYear?year=';
   private _statsByDateUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByDate?logDate=';
 
-  //@Input() totalEntries: number = 0;
+
   constructor(private _http: Http) { }
 
 
@@ -32,7 +32,6 @@ export class StatsService {
   getByAllTime(): Observable<IStats[]>  {
     return this._http.get(this._statsByAllTimeUrl)
           .map((response: Response) => <IStats[]> response.json().data)
-          //.do(response => this.totalEntries = response.length - 1)
           //  .do(data => console.log('All: ' + JSON.stringify(data)))
           .catch(this.handleError);
   }

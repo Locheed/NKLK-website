@@ -14,10 +14,10 @@ import { StatsService } from '../shared/stats.service';
 })
 export class StatsComponent implements OnInit {
 
-  pageTitle: string = "Server statistics by date";
-  errorMessage: string;
-  stats: IStats[];
-  myDatePickerOptions = {
+private pageTitle: string = "Server statistics by date";
+private errorMessage: string;
+public stats: IStats[];
+private myDatePickerOptions = {
       todayBtnTxt: 'Today',
       dateFormat: 'yyyy-mm-dd',
       firstDayOfWeek: 'mo',
@@ -34,15 +34,15 @@ export class StatsComponent implements OnInit {
 
   };
 
-
+private config: string;
+private prefix: string = '-';
+private asc: boolean = true;
+private sortableCol: string;
 
 
   constructor(private _StatsService: StatsService) { }
 
-  config: string;
-  prefix: string = '-';
-  asc: boolean = true;
-  sortableCol: string;
+  
 
   sort(event, sortBy) {
     event.preventDefault();

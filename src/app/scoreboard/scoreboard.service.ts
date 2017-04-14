@@ -25,7 +25,7 @@ export class ScoreboardService {
   }
 
   getTeam0() {
-    return Observable.interval(10000).flatMap(() => this._http.get('/api/scores/0')
+    return Observable.timer(0, 10000).flatMap(() => this._http.get('/api/scores/0')
     .map((response: Response) => response.json()))
           //.do(data => console.log('Scores_1_All: ' + JSON.stringify(data)))
           .catch(this.handleError);
