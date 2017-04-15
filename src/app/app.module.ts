@@ -22,7 +22,7 @@ import { ScoreboardService } from './scoreboard/scoreboard.service';
 import { StringFilterPipe } from './shared/filter.pipe';
 import { SortByPipe } from './shared/sort-by.pipe';
 import { AdminsComponent } from './admins/admins.component';
-
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,8 @@ import { AdminsComponent } from './admins/admins.component';
       { path: 'stats/AllTime', component: AllStatsComponent },
       { path: 'stats/bySoldierName', component: StatsSoldiernameComponent },
       { path: 'admins', component: AdminsComponent }
-    ])
+    ]),
+    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
   ],
   providers: [ScoreboardService],
   bootstrap: [AppComponent]

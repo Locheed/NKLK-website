@@ -25,6 +25,16 @@ private blog = "http://battlelog.battlefield.com/bf4/user/"
 
 private founders = [
         {
+            url: "../../assets/img/profiles/dlight007.jpg",
+            nick: "DLight007",
+            realName: "xxxxx",
+            role: "Midget lover",
+            status: "ACTIVE",
+            playing: false,
+            idNum: "943091382",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
             url: "../../assets/img/profiles/elanto.gif",
             nick: "Elant0",
             realName: "xxxxx",
@@ -36,13 +46,13 @@ private founders = [
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
-            url: "../../assets/img/profiles/dlight007.jpg",
-            nick: "DLight007",
+            url: "../../assets/img/profiles/locheed.jpg",
+            nick: "Locheed",
             realName: "xxxxx",
-            role: "Midget lover",
+            role: "Webmaster",
             status: "ACTIVE",
             playing: false,
-            idNum: "943091382",
+            idNum: "218914927",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -54,29 +64,30 @@ private founders = [
             playing: false,
             idNum: "806262072",
             flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/locheed.jpg",
-            nick: "Locheed",
-            realName: "xxxxx",
-            role: "Webmaster",
-            status: "ACTIVE",
-            playing: false,
-            idNum: "218914927",
-            flag: "../../assets/img/flags/finland.jpg"
         }
     ];
 
 private admins = [
           {
             url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "Minefield78",
-            realName: "xxxxx",
+            nick: "-RK62-makkara",
+            realName: "",
             role: "Admin",
-            status: "ACTIVE",
+            status: "M I A",
             playing: false,
             playingTitle: " is offline",
-            idNum: "1055867487",
+            idNum: "38319094",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "-RK62-Nuukeri",
+            realName: "",
+            role: "Admin",
+            status: "M I A",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "368721484",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
@@ -92,171 +103,17 @@ private admins = [
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "Moksu-FIN",
-            realName: "xxxxx",
+            nick: "ASniperKing",
+            realName: "",
             role: "Admin",
             status: "ACTIVE",
             playing: false,
             playingTitle: " is offline",
-            idNum: "356382977",
+            idNum: "354678995",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "SamiKill3r",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "501410015",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "rytkonet",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "362333041",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "Toebsel",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "766030149",
-            flag: "../../assets/img/flags/switzerland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "Malakatta",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "354439187",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "HardMolli",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "505751513",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "J0loma",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "902250816",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/viljamimies.jpg",
-            nick: "viljamimies",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "277958456",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "Tokkeli",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "902197558",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/luteenvarjo.jpg",
-            nick: "Luteenvarjo",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "366322278",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "rivakka",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "381166651",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "Vuuti",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "590369041",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "R33_GTRnismo",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "354025805",
-            flag: "../../assets/img/flags/sweden.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/vastaheitto.jpg",
-            nick: "Vastaheitto",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "188907812",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "Retkis",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "354482235",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
+            url: "../../assets/img/profiles/crazywoman.jpg",
             nick: "CrAzyW0mAn",
             realName: "xxxxx",
             role: "Admin",
@@ -279,14 +136,80 @@ private admins = [
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "Skaffa247",
+            nick: "HardMolli",
             realName: "xxxxx",
             role: "Admin",
             status: "ACTIVE",
             playing: false,
             playingTitle: " is offline",
-            idNum: "997550639",
-            flag: "../../assets/img/flags/netherlands.jpg"
+            idNum: "505751513",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/hc_hitsari.jpg",
+            nick: "HC-hitsari",
+            realName: "",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "352465266",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "J0loma",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "M I A",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "902250816",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/luteenvarjo.jpg",
+            nick: "Luteenvarjo",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "366322278",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "Malakatta",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "RETIRED",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "354439187",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "Minefield78",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "1055867487",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "Moksu-FIN",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "356382977",
+            flag: "../../assets/img/flags/finland.jpg"
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
@@ -300,37 +223,81 @@ private admins = [
             flag: "../../assets/img/flags/latvia.jpg"
         },
         {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "-RK62-Nuukeri",
-            realName: "",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "368721484",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "ASniperKing",
+            url: "../../assets/img/profiles/nebuq.jpg",
+            nick: "Nebuq",
             realName: "",
             role: "Admin",
             status: "ACTIVE",
             playing: false,
             playingTitle: " is offline",
-            idNum: "354678995",
+            idNum: "372769934",
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "-RK62-makkara",
-            realName: "",
+            nick: "R33_GTRnismo",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "354025805",
+            flag: "../../assets/img/flags/sweden.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "Retkis",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "354482235",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "rivakka",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "381166651",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "rytkonet",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "362333041",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "SamiKill3r",
+            realName: "xxxxx",
             role: "Admin",
             status: "M I A",
             playing: false,
             playingTitle: " is offline",
-            idNum: "38319094",
+            idNum: "501410015",
             flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "Skaffa247",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "997550639",
+            flag: "../../assets/img/flags/netherlands.jpg"
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
@@ -345,6 +312,61 @@ private admins = [
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "Toebsel",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "M I A",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "766030149",
+            flag: "../../assets/img/flags/switzerland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "Tokkeli",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "902197558",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/vastaheitto.jpg",
+            nick: "Vastaheitto",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "188907812",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/viljamimies.jpg",
+            nick: "viljamimies",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "277958456",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "Vuuti",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "590369041",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/westphald.jpg",
             nick: "Westphald",
             realName: "",
             role: "Admin",
@@ -353,28 +375,6 @@ private admins = [
             playingTitle: " is offline",
             idNum: "353967569",
             flag: "../../assets/img/flags/belgium.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/nebuq.jpg",
-            nick: "Nebuq",
-            realName: "",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "372769934",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/hc_hitsari.jpg",
-            nick: "HC-hitsari",
-            realName: "",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "352465266",
-            flag: "../../assets/img/flags/finland.jpg"
         }
       /*  {
             url: "",

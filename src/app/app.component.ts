@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 
 import { StatsService } from './shared/stats.service';
 
@@ -9,5 +10,5 @@ import { StatsService } from './shared/stats.service';
   providers: [StatsService]
 })
 export class AppComponent {
-  title = 'Welcome';
+  constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {}
 }
