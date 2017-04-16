@@ -14,59 +14,66 @@ import { ScoreboardService } from './scoreboard.service';
 export class ScoreboardComponent implements OnInit {
 
   // Scoreboard vars
-  scores: any = [];
-  team0: any = [];
-  team1: any = [];
-  team2: any = [];
-  squadID: string;
-  countTeam0: number;
-  countTeam1: number = 0;
-  countTeam2: number = 0;
-  errorMessage: string;
-  subscriptionTeam0: any;
-  subscriptionTeam1: any;
-  subscriptionTeam2: any;
-  subscriptionServerinfo: any;
-  timeNow: number = Date.now() / 1000;
-  roundTimeFullSeconds: number;
-  roundStartTime: number;
-  roundTime: any;
-  hideJoining = true;
+  private scores: any = [];
+  private team0: any = [];
+  private team1: any = [];
+  private team2: any = [];
+  private squadID: string;
+  private countTeam0: number;
+  private countTeam1: number = 0;
+  private countTeam2: number = 0;
+  private errorMessage: string;
+  private subscriptionTeam0: any;
+  private subscriptionTeam1: any;
+  private subscriptionTeam2: any;
+  private subscriptionServerinfo: any;
+  private timeNow: number = Date.now() / 1000;
+  private roundTimeFullSeconds: number;
+  private roundStartTime: number;
+  private roundTime: any;
+  private hideJoining = true;
   private isLoading = true;
-
+  /*
+  private playersPlaying = [];
+  private playersWithId: any = {};
+  private players: any = [];
+  private id;
+  private battlebloginfo: any = [];
+  private subscriptionbattleblog: any;
+  */
   // Alert range
-  warningMin: number = 2.2; // 2.2 - 2.4 kpm. warning coloring
-  warningMax: number = 2.4;
-  alertMin: number = 2.5; // 2.5 - 50 kpm. alert coloring
-  alertMax: number = 50;
+  private warningMin: number = 2.2; // 2.2 - 2.4 kpm. warning coloring
+  private warningMax: number = 2.4;
+  private alertMin: number = 2.5; // 2.5 - 50 kpm. alert coloring
+  private alertMax: number = 50;
 
   // Serverinfo vars
-  serverinfo: any = [];
-  currentMap: string;
-  currentMode: string;
-  maxPlayers: number;
-  waitingPlayers: number;
-  roundTimeFull: any;
-  currentCountPlayers: number;
-  tickets: number = 0;
-  ticketsMax: number = 0;
-  bases: number = 0;
-  basesMax: number = 0;
+  private serverinfo: any = [];
+  private currentMap: string;
+  private currentMode: string;
+  private maxPlayers: number;
+  private waitingPlayers: number;
+  private roundTimeFull: any;
+  private currentCountPlayers: number;
+  private tickets: number = 0;
+  private ticketsMax: number = 0;
+  private bases: number = 0;
+  private basesMax: number = 0;
 
 
   // Vars for sorting
-  config: string;
-  prefix: string = '-';
-  asc: boolean = true;
-  sortableCol: string;
+  private config: string;
+  private prefix: string = '-';
+  private asc: boolean = true;
+  private sortableCol: string;
 
 
   // Scoreboard action urls
-  blogUrl: string = "http://battlelog.battlefield.com/bf4/user/";
-  istatsUrlFirst: string = "https://i-stats.net/index.php?action=pcheck&player=";
-  istatsUrlSec: string = "&game=BF4&sub=Check+Player";
-  metaBansUrl: string = "http://metabans.com/search/?phrase=";
-  fairplayUrl: string = "https://www.247fairplay.com/CheatDetector/";
+  private blogUrl: string = "http://battlelog.battlefield.com/bf4/user/";
+  private istatsUrlFirst: string = "https://i-stats.net/index.php?action=pcheck&player=";
+  private istatsUrlSec: string = "&game=BF4&sub=Check+Player";
+  private metaBansUrl: string = "http://metabans.com/search/?phrase=";
+  private fairplayUrl: string = "https://www.247fairplay.com/CheatDetector/";
 
 
   constructor(private _scoreboardservice: ScoreboardService) { }
@@ -80,10 +87,24 @@ export class ScoreboardComponent implements OnInit {
     this.asc = this.prefix === '-' ? true : false;
 
   }
+  /* Unimplemented stat fetching
+  hover($event: any, name: string) {
+      for (let i = 0; i < this.playersWithId.players.length; i++) {
+          let nick = this.playersWithId.players[i].name;
+          if (name === nick) {
+            this.id = this.playersWithId.players[i].id
+          }
+      }
+    this._scoreboardservice.getDataHover(this.id)
+        .subscribe(battlebloginfo => {
+                  this.battlebloginfo = battlebloginfo;
+              },
+          error => this.errorMessage = <any>error);
+    }
+  */
 
-  
   ngOnInit() {
-    // Deprecated and abandoned API from RConnet
+    
     
     
     this._scoreboardservice.getScoreBoard()
@@ -107,10 +128,31 @@ export class ScoreboardComponent implements OnInit {
             
     
     this.subscriptionServerinfo = this._scoreboardservice.serverInfo()
-        .subscribe(serverinfo => this.serverinfo = serverinfo,
-            error => this.errorMessage = <any>error);
+        .subscribe(serverinfo => { 
+                    this.serverinfo = serverinfo;
+                    
+/*
+           this.playersPlaying = [];    // Reset playersPlaying array on every fetch
+           let i = 0;
+           const index = Object.keys(this.serverinfo.teamInfo);    // Trick to access numeric Object.keys.
+           let playerIndex = [];
            
-
+           index.forEach(n => {
+               const playerId = Object.keys(this.serverinfo.teamInfo[n].players);
+               playerId.forEach(m => {
+                     this.players.findIndex(x => x.name === this.serverinfo.teamInfo[n].players[m].name) === -1 ? this.players.push({ 
+                                "name" : this.serverinfo.teamInfo[n].players[m].name,
+                                "id"  : m,
+                                "kit" : this.serverinfo.teamInfo[n].players[m].kit
+                                
+                            }) : console.log("This id already exists");
+                            this.playersWithId.players = this.players;
+                            i++;
+                    });
+           });
+           */
+          },
+            error => this.errorMessage = <any>error);
   }
 
   ngDoCheck() {
@@ -143,6 +185,8 @@ export class ScoreboardComponent implements OnInit {
     this.roundTimeFullSeconds = this.serverinfo.roundTimeFull;
     this.roundStartTime = this.serverinfo.roundStartTime;
     this.roundTime  = new Date(1970, 0, 1).setSeconds(this.roundTimeFullSeconds);
+
+    
 
   }
   ngOnDestroy() {

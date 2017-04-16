@@ -1,6 +1,3 @@
-// Deprecated and abandoned API from RConnet
-
-
 import { Injectable } from '@angular/core';
 import {Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -12,11 +9,25 @@ import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/mergeMap';
 
 
+
 @Injectable()
 export class ScoreboardService {
 
-  constructor(private _http: Http) { }
+/*  Unimplemented stat fetching
+private _warsowBattleblogStart = "http://battlelog.battlefield.com/bf4/warsawoverviewpopulate/";
+private _warsowBattleblogEnd = "/1";*/
 
+
+  constructor(private _http: Http) { }
+  
+  /*
+   getDataHover(soldierId: string) {
+    return this._http.get(this._warsowBattleblogStart + soldierId + this._warsowBattleblogEnd)
+          .map((response: Response) => response.json())
+          //.do(data => console.log('All: ' + JSON.stringify(data)))
+          .catch(this.handleError);
+  }
+  */
   getScoreBoard() {
     return this._http.get('/api/scores')
           .map((response: Response) => response)

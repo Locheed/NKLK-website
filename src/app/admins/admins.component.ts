@@ -429,6 +429,7 @@ private admins = [
                         }
                     });
                    // Debug console.log("Players in array: " + this.adminsPlaying);
+
                });
            });
         },
