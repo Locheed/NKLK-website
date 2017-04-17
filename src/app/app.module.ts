@@ -12,7 +12,7 @@ import { NavComponent } from './nav/nav.component';
 import { AllStatsComponent } from './all-stats/all-stats.component';
 import { StatsSoldiernameComponent } from './stats-soldiername/stats-soldiername.component';
 import { HomeComponent } from './home/home.component';
-import { Ng2PaginationModule } from 'ng2-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { PaginationControlsDirectiveComponent } from './shared/pagination-controls-directive/pagination-controls-directive.component';
 import { InfobannerComponent } from './home/infobanner/infobanner.component';
 import { DiscordwidgetComponent } from './home/discordwidget/discordwidget.component';
@@ -46,7 +46,7 @@ import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
     FormsModule,
     HttpModule,
     MyDatePickerModule,
-    Ng2PaginationModule,
+    NgxPaginationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'scoreboard', component: ScoreboardComponent },

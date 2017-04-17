@@ -9,7 +9,8 @@ const API = require('./keys.js');
 
 const Player = require('../../model/mongo');
 
-mongoose.connect('mongodb://localhost:27017/nklk');
+//mongoose.connect('mongodb://localhost:27017');
+mongoose.connect(API.mongoUrl);
 
 const app = express();
 
