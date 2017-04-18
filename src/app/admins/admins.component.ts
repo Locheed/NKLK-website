@@ -18,7 +18,7 @@ private errorMessage: string;
 private playersPlaying: any = [];
 private nick: string;
 private idNum: string;
-private playingTitle: string;
+private playingTitle: string = " is offline";
 
 private blog = "http://battlelog.battlefield.com/bf4/user/"
 
@@ -31,6 +31,7 @@ private founders = [
             role: "Midget lover",
             status: "ACTIVE",
             playing: false,
+            playingTitle: " is offline",
             idNum: "943091382",
             flag: "../../assets/img/flags/finland.jpg"
         },
@@ -52,6 +53,7 @@ private founders = [
             role: "Webmaster",
             status: "ACTIVE",
             playing: false,
+            playingTitle: " is offline",
             idNum: "218914927",
             flag: "../../assets/img/flags/finland.jpg"
         },
@@ -62,6 +64,7 @@ private founders = [
             role: "Plugins wizard",
             status: "ACTIVE",
             playing: false,
+            playingTitle: " is offline",
             idNum: "806262072",
             flag: "../../assets/img/flags/finland.jpg"
         }
@@ -413,10 +416,10 @@ private admins = [
                    this.founders.forEach(founder => {
                        if (this.playersPlaying.indexOf(founder.idNum) != -1) {
                            founder.playing = true;
-                           this.playingTitle = " is playing on Niskalaukaus K-18";
+                           founder.playingTitle = " is playing on Niskalaukaus K-18";
                           } else { 
                               founder.playing = false;
-                              this.playingTitle = " is offline";
+                              founder.playingTitle = " is offline";
                         }
                     });
                     this.admins.forEach(admin => {

@@ -33,6 +33,10 @@ export class ScoreboardComponent implements OnInit {
   private roundTime: any;
   private hideJoining = true;
   private isLoading = true;
+  private adminsArray = ['Elant0', 'Dlight007', 'Locheed', 'XfileFIN', '-RK62-makkara', '-RK62-Nuukeri', '95-Ka1stu', 'ASniperKing',
+                         'CrAzyW0mAn', 'EESTI-POLITSEI', 'HardMolli', 'HC_hitsari', 'J0loma', 'Luteenvarjo', 'Malakatta', 'Minefield78',
+                         'Moksu-FIN', 'narkoze-LV', 'Nebuq', 'R33_GTRnismo', 'Retkis', 'rivakka', 'rytkonet', 'Samikill3r', 'Skaffa247',
+                         'TheNmiet', 'Toebsel', 'Tokkeli', 'Vastaheitto', 'viljamimies', 'Vuuti', 'Westphald'];
   /*
   private playersPlaying = [];
   private playersWithId: any = {};
@@ -60,13 +64,13 @@ export class ScoreboardComponent implements OnInit {
   private bases: number = 0;
   private basesMax: number = 0;
 
-
+/*
   // Vars for sorting
   private config: string;
   private prefix: string = '-';
   private asc: boolean = true;
   private sortableCol: string;
-
+*/
 
   // Scoreboard action urls
   private blogUrl: string = "http://battlelog.battlefield.com/bf4/user/";
@@ -79,14 +83,14 @@ export class ScoreboardComponent implements OnInit {
   constructor(private _scoreboardservice: ScoreboardService) { }
 
   // Sorting config
-  sort(event, sortBy) {
-    event.preventDefault();
-    this.sortableCol = sortBy;
-    this.config = this.prefix + sortBy;
-    this.prefix = this.prefix === '-' ? '+' : '-';
-    this.asc = this.prefix === '-' ? true : false;
+ // sort(event, sortBy) {
+   // event.preventDefault();
+    //this.sortableCol = sortBy;
+    //this.config = this.prefix + sortBy;
+    //this.prefix = this.prefix === '-' ? '+' : '-';
+    //this.asc = this.prefix === '-' ? true : false;
 
-  }
+  //}
   /* Unimplemented stat fetching
   hover($event: any, name: string) {
       for (let i = 0; i < this.playersWithId.players.length; i++) {

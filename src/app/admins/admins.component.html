@@ -1,7 +1,7 @@
 <h2 class="title-bar">Founders</h2>
 <div class="admins">
   <div class="profile-card" *ngFor="let founder of founders" [ngStyle]="{'background-image': 'url(' + founder.flag + ')'}">
-      <span class="offline" [ngClass]="{ 'online': founder.playing }" title="{{founder.nick}}{{playingTitle}}"></span>
+      <span class="offline" [ngClass]="{ 'online': founder.playing }" title="{{founder.nick}}{{founder.playingTitle}}"></span>
       <div class="img-container">
         <img [src]=founder.url alt="">
       </div>

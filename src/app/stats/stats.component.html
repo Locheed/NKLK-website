@@ -13,8 +13,9 @@
       <th class="small-screen"><a class="th-sort" href="" (click)="sort($event, 'combatScore')">Combat Score</a><span class="arrow" *ngIf="sortableCol === 'combatScore'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
       <th><a class="th-sort" href="" (click)="sort($event, 'kills')">Kills</a><span class="arrow" *ngIf="sortableCol === 'kills'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
       <th><a class="th-sort" href="" (click)="sort($event, 'deaths')">Deaths</a><span class="arrow" *ngIf="sortableCol === 'deaths'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
-      <th><a class="th-sort" href="" (click)="sort($event, '')">K/D</a><span class="arrow" *ngIf="sortableCol === ''"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
-      <th class="mobile-screen"><a class="th-sort" href="" (click)="sort($event, 'killsPerMinute')">Kpm</a><span class="arrow" *ngIf="sortableCol === 'killsPerMinute'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
+      <th><!--<a class="th-sort" href="" (click)="sort($event, 'KD')">-->K/D<!--</a><span class="arrow" *ngIf="sortableCol === 'KD'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span>--></th>
+      <th class="mobile-screen"><!--<a class="th-sort" href="" (click)="sort($event, 'killsPerMinute')">-->Kpm<!--</a><span class="arrow" *ngIf="sortableCol === 'killsPerMinute'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span>--></th>
+      <!--<th class="mobile-screen"><a class="th-sort" href="" (click)="sort($event, 'killsPerMinute')">Kpm</a><span class="arrow" *ngIf="sortableCol === 'killsPerMinute'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>-->
       <th class="mobile-screen"><a class="th-sort" href="" (click)="sort($event, 'headshots')">Headshots</a><span class="arrow" *ngIf="sortableCol === 'headshots'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
       <th class="mobile-screen"><a class="th-sort" href="" (click)="sort($event, 'revives')">Revives</a><span class="arrow" *ngIf="sortableCol === 'revives'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
       <th class="mobile-screen"><a class="th-sort" href="" (click)="sort($event, 'heals')">Heals</a><span class="arrow" *ngIf="sortableCol === 'heals'"><span *ngIf="!asc">&#11107;</span><span *ngIf="asc">&#11105;</span></span></th>
@@ -36,6 +37,7 @@
           <td>{{ stat.deaths }}</td>
           <td [ngClass] = "{'alertColor' : (stat.kills / stat.deaths > 10), 'warningColor' : (stat.kills / stat.deaths < 10) && (stat.kills / stat.deaths > 5)  }" >{{ stat.kills / stat.deaths | number: '1.2-2'}}</td>
           <td class="mobile-screen"[ngClass] = "{'alertColor' : (stat.kills / ((stat.timePlayed / 60) / 60) / 60) > 2.8, 'warningColor' : (stat.kills / ((stat.timePlayed / 60) / 60) / 60) < 2.8 && (stat.kills / ((stat.timePlayed / 60) / 60) / 60) > 2 }">{{ (stat.kills / ((stat.timePlayed / 60) / 60) / 60) | number: '1.2-2'}}</td>
+          <!--<td class="mobile-screen"[ngClass] = "{'alertColor' : stat.killsPerMinute > 2.8, 'warningColor' : stat.killsPerMinute < 2.8 && stat.killsPerMinute > 2 }">{{ stat.killsPerMinute | number: '1.2-2'}}</td>-->
           <td class="mobile-screen">{{ stat.headshots }}</td>
           <td class="mobile-screen">{{ stat.revives }}</td>
           <td class="mobile-screen">{{ stat.heals }}</td>

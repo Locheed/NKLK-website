@@ -59,7 +59,9 @@ private sortableCol: string;
   onDateChanged(event:any) {
     let date: string = event.formatted;
     this._StatsService.getByDate(date)
-        .subscribe(stats => this.stats = stats,
+        .subscribe(stats => {
+          this.stats = stats;
+         },
             error => this.errorMessage = <any>error);
     console.log('onDateChanged(): ', event.date, ' - jsdate: ', new Date(event.jsdate).toLocaleDateString(), ' - formatted: ', event.formatted, ' - epoc timestamp: ', event.epoc);
   }

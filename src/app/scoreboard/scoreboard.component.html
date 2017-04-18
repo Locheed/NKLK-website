@@ -41,7 +41,7 @@
           <td class="mobile-screen small-screen" *ngIf="joining.squadId == 9">Indy</td>
           <td class="mobile-screen small-screen" *ngIf="joining.squadId == 10">Juliet</td>
           <td class="mobile-screen">{{joining.rank}}</td>
-          <td>{{joining.name}}</td>
+          <td>{{joining.name}}<span class="crown" *ngIf="adminsArray.indexOf(joining.name) > -1"><img src="../../assets/img/icons/crown.png" title="Admin"></span></td>
           <td>{{joining.sessionKills}}</td>
           <td>{{joining.sessionDeaths}}</td>
           <td>{{joining.sessionKills / joining.sessionDeaths | number: '1.2-2'}}</td>
@@ -110,7 +110,7 @@
           <td class="mobile-screen small-screen" *ngIf="attacker.squadId == 9">Indy</td>
           <td class="mobile-screen small-screen" *ngIf="attacker.squadId == 10">Juliet</td>
           <td class="mobile-screen">{{attacker.rank}}</td>
-          <td>{{attacker.name}}</td>
+          <td>{{attacker.name}}<span class="crown" *ngIf="adminsArray.indexOf(attacker.name) > -1"><img src="../../assets/img/icons/crown.png" title="Admin"></span></td>
           <td>{{attacker.sessionKills}}</td>
           <td>{{attacker.sessionDeaths}}</td>
           <td>{{attacker.sessionKills / attacker.sessionDeaths | number: '1.2-2'}}</td>
@@ -169,7 +169,7 @@
           <td class="mobile-screen small-screen" *ngIf="defender.squadId == 9">Indy</td>
           <td class="mobile-screen small-screen" *ngIf="defender.squadId == 10">Juliet</td> 
           <td class="mobile-screen">{{defender.rank}}</td>
-          <td>{{defender.name}}</td>
+          <td>{{defender.name}}<span class="crown" *ngIf="adminsArray.indexOf(defender.name) > -1"><img src="../../assets/img/icons/crown.png" title="Admin"></span></td>
           <td>{{defender.sessionKills}}</td>
           <td>{{defender.sessionDeaths}}</td>
           <td>{{defender.sessionKills / defender.sessionDeaths | number: '1.2-2'}}</td>
