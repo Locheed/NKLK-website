@@ -1,18 +1,20 @@
 const express = require('express');
 const crypto = require('crypto');
 const router = express.Router();
-const axios = require('axios');
 const request = require('request');
 const mongoose    =   require("mongoose");
 const geoip = require('geoip-lite-country');
 const API = require('./keys.js');
 
+
+
 const Player = require('../../model/mongo');
 
-//mongoose.connect('mongodb://localhost:27017');
-mongoose.connect(API.mongoUrl);
+mongoose.connect('mongodb://localhost:27017');
+//mongoose.connect(API.mongoUrl);
 
 const app = express();
+
 
 // Make random string for hash
 function makeid(text)
@@ -74,7 +76,7 @@ router.route('/serverinfo').get(function(req,res) {
                   }
                 );
           };    */   
-          console.log("Body stringi: " + JSON.stringify(body));
+          console.log("Serverinfo data: " + JSON.stringify(body, undefined, 4));
         } else if (error) {
           console.log("Something went wrong fetching serverinfo" + error);
         }
@@ -83,17 +85,19 @@ router.route('/serverinfo').get(function(req,res) {
 
 /* GET api listing. */
 router.route('/scores/:id').get(function(req, res) {
-  makeRequest();
-
   Player.find({ teamId: req.params.id}, function(err, team) {
     if (err) {
        return res.send(err);
     }
-      res.json(team);
+      setTimeout(() => { res.json(team) }, 2000);
       });
-  
-  
 });
+
+// Start polling data from rconnet API to MongoDb.
+makeRequest();
+setInterval(() => {
+  makeRequest()
+}, 8000);
 
   function makeRequest() {
       request({
@@ -101,17 +105,19 @@ router.route('/scores/:id').get(function(req, res) {
           json: true
           //gzip: true
       }, function (error, response, body) {
-
           if (!error && response.statusCode === 200) {
               //console.log("body", body) // Print the json response
               Player.remove({}, function(err, result) {
-                if (err) console.log("Deletion failed:" + err)
-                else {
-                  console.log("Removed all: " + result);
-                  
-                  setData(body);
-                  }
-          });      
+                    if (err) console.log("Deletion failed:" + err)
+                        else {
+                          console.log("Removed all: " + result);
+                          
+                          setData(body);
+                          }
+                  });
+
+
+                 
           } else {
               console.log("Something went wrong with polling: " + error);
               } 
@@ -168,6 +174,7 @@ function setData(body) {
               console.log("Update failed." + err);
             } else {
               console.log("saved: " + model);
+             
             }
         }
       );

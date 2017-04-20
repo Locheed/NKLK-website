@@ -16,6 +16,8 @@ private subscriptionPlayers: any;
 private playersinfo: any = [];
 private errorMessage: string;
 private playersPlaying: any = [];
+private foundersPlaying: any = [];
+private adminsPlaying: any = [];
 private nick: string;
 private idNum: string;
 private playingTitle: string = " is offline";
@@ -71,39 +73,7 @@ private founders = [
     ];
 
 private admins = [
-          {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "-RK62-makkara",
-            realName: "",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "38319094",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "-RK62-Nuukeri",
-            realName: "",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "368721484",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "95-Ka1stu",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "366083000",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
+          
         {
             url: "../../assets/img/profiles/noprofile.jpg",
             nick: "ASniperKing",
@@ -160,17 +130,6 @@ private admins = [
             flag: "../../assets/img/flags/finland.jpg"
         },
         {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "J0loma",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "902250816",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
             url: "../../assets/img/profiles/luteenvarjo.jpg",
             nick: "Luteenvarjo",
             realName: "xxxxx",
@@ -181,7 +140,7 @@ private admins = [
             idNum: "366322278",
             flag: "../../assets/img/flags/finland.jpg"
         },
-        {
+        /*{
             url: "../../assets/img/profiles/noprofile.jpg",
             nick: "Malakatta",
             realName: "xxxxx",
@@ -191,7 +150,7 @@ private admins = [
             playingTitle: " is offline",
             idNum: "354439187",
             flag: "../../assets/img/flags/finland.jpg"
-        },
+        },*/
         {
             url: "../../assets/img/profiles/noprofile.jpg",
             nick: "Minefield78",
@@ -213,17 +172,6 @@ private admins = [
             playingTitle: " is offline",
             idNum: "356382977",
             flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
-            url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "narkoze-LV",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "M I A",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "987294553",
-            flag: "../../assets/img/flags/latvia.jpg"
         },
         {
             url: "../../assets/img/profiles/nebuq.jpg",
@@ -280,7 +228,7 @@ private admins = [
             idNum: "362333041",
             flag: "../../assets/img/flags/finland.jpg"
         },
-        {
+        /*{
             url: "../../assets/img/profiles/noprofile.jpg",
             nick: "SamiKill3r",
             realName: "xxxxx",
@@ -290,7 +238,7 @@ private admins = [
             playingTitle: " is offline",
             idNum: "501410015",
             flag: "../../assets/img/flags/finland.jpg"
-        },
+        },*/
         {
             url: "../../assets/img/profiles/noprofile.jpg",
             nick: "Skaffa247",
@@ -302,7 +250,7 @@ private admins = [
             idNum: "997550639",
             flag: "../../assets/img/flags/netherlands.jpg"
         },
-        {
+        /*{
             url: "../../assets/img/profiles/noprofile.jpg",
             nick: "TheNmiet",
             realName: "",
@@ -334,7 +282,7 @@ private admins = [
             playingTitle: " is offline",
             idNum: "902197558",
             flag: "../../assets/img/flags/finland.jpg"
-        },
+        },*/
         {
             url: "../../assets/img/profiles/vastaheitto.jpg",
             nick: "Vastaheitto",
@@ -378,14 +326,70 @@ private admins = [
             playingTitle: " is offline",
             idNum: "353967569",
             flag: "../../assets/img/flags/belgium.jpg"
-        }
-      /*  {
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "-RK62-makkara",
+            realName: "",
+            role: "Admin",
+            status: "M I A",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "38319094",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "-RK62-Nuukeri",
+            realName: "",
+            role: "Admin",
+            status: "M I A",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "368721484",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        /*{
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "95-Ka1stu",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "M I A",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "366083000",
+            flag: "../../assets/img/flags/finland.jpg"
+        },*/
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "J0loma",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "M I A",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "902250816",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "narkoze-LV",
+            realName: "xxxxx",
+            role: "Admin",
+            status: "M I A",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "987294553",
+            flag: "../../assets/img/flags/latvia.jpg"
+        },
+        {
             url: "",
             nick: "",
             realName: "",
             role: "",
             status: "",
             playing: false,
+            playingTitle: " is offline",
             idNum: "",
             flag: "../../assets/img/flags/european.jpg"
         },
@@ -396,9 +400,10 @@ private admins = [
             role: "",
             status: "",
             playing: false,
+            playingTitle: " is offline",
             idNum: "",
             flag: "../../assets/img/flags/european.jpg"
-        }*/
+        }
     ];
 
   constructor(private _scoreboardservice: ScoreboardService) { }
@@ -413,14 +418,21 @@ private admins = [
                const playerId = Object.keys(this.playersinfo.teamInfo[n].players);
                playerId.forEach(m => {
                    this.playersPlaying.indexOf(parseInt(m, 10)) === -1 ? this.playersPlaying.push(m) : console.log("This id already exists");
+                   
                    this.founders.forEach(founder => {
                        if (this.playersPlaying.indexOf(founder.idNum) != -1) {
                            founder.playing = true;
                            founder.playingTitle = " is playing on Niskalaukaus K-18";
+                           this.foundersPlaying.indexOf(founder.idNum) === -1 ? this.foundersPlaying.push(founder.idNum) : console.log("This founder already plays");
                           } else { 
                               founder.playing = false;
+                              const arrIndex = this.foundersPlaying.indexOf(founder.idNum);
+                              if (arrIndex !== (-1)) {
+                                this.foundersPlaying.splice(arrIndex, 1);
+                              }
                               founder.playingTitle = " is offline";
                         }
+                        console.log(this.foundersPlaying);
                     });
                     this.admins.forEach(admin => {
                        if (this.playersPlaying.indexOf(admin.idNum) != -1) {

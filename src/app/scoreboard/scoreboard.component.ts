@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
+import 'moment-duration-format';
+import * as moment from 'moment';
 
 import { ScoreboardService } from './scoreboard.service';
 
@@ -33,10 +35,11 @@ export class ScoreboardComponent implements OnInit {
   private roundTime: any;
   private hideJoining = true;
   private isLoading = true;
-  private adminsArray = ['Elant0', 'Dlight007', 'Locheed', 'XfileFIN', '-RK62-makkara', '-RK62-Nuukeri', '95-Ka1stu', 'ASniperKing',
+  private adminsArray = ['Elant0', 'DLight007', 'Locheed', 'xfileFIN', '-RK62-makkara', '-RK62-Nuukeri', '95-Ka1stu', 'ASniperKing',
                          'CrAzyW0mAn', 'EESTI-POLITSEI', 'HardMolli', 'HC_hitsari', 'J0loma', 'Luteenvarjo', 'Malakatta', 'Minefield78',
                          'Moksu-FIN', 'narkoze-LV', 'Nebuq', 'R33_GTRnismo', 'Retkis', 'rivakka', 'rytkonet', 'Samikill3r', 'Skaffa247',
                          'TheNmiet', 'Toebsel', 'Tokkeli', 'Vastaheitto', 'viljamimies', 'Vuuti', 'Westphald'];
+  
   /*
   private playersPlaying = [];
   private playersWithId: any = {};
@@ -46,9 +49,9 @@ export class ScoreboardComponent implements OnInit {
   private subscriptionbattleblog: any;
   */
   // Alert range
-  private warningMin: number = 2.2; // 2.2 - 2.4 kpm. warning coloring
-  private warningMax: number = 2.4;
-  private alertMin: number = 2.5; // 2.5 - 50 kpm. alert coloring
+  private warningMin: number = 2.4; // 2.2 - 2.4 kpm. warning coloring
+  private warningMax: number = 2.6;
+  private alertMin: number = 2.7; // 2.5 - 50 kpm. alert coloring
   private alertMax: number = 50;
 
   // Serverinfo vars
@@ -116,18 +119,51 @@ export class ScoreboardComponent implements OnInit {
             error => this.errorMessage = <any>error);
     
     this.subscriptionTeam0 = this._scoreboardservice.getTeam0()
-        .subscribe(team0 => this.team0 = team0,
+        .subscribe(team0 => {
+                   this.team0 = team0;
+                   this.team0.forEach(x => {
+                              x.sessionPlaytime = ((this.timeNow - x.connecttime) - 600);
+                              x.lastswitchtime = ((this.timeNow - x.lastswitchtime) - 600)
+                              x.kd = x.sessionKills / x.sessionDeaths;
+                              x.kpm = x.sessionKills / (x.roundTimeSeconds / 60);
+                   });
+                },
             error => this.errorMessage = <any>error);
     
 
     this.subscriptionTeam1 = this._scoreboardservice.getTeam1()
         .subscribe(team1 => { this.team1 = team1;
+                              this.team1.forEach(x => {
+                              x.sessionPlaytime = ((this.timeNow - x.connecttime) - 600);
+                              x.lastswitchtime = ((this.timeNow - x.lastswitchtime) - 600)
+                              x.kd = x.sessionKills / x.sessionDeaths;
+                              x.kpm = x.sessionKills / (x.roundTimeSeconds / 60);
+                          });
+                            
                               this.isLoading = false; },
             error => this.errorMessage = <any>error);
             
 
     this.subscriptionTeam2 = this._scoreboardservice.getTeam2()
-        .subscribe(team2 => this.team2 = team2,
+        .subscribe(team2 => {
+                   this.team2 = team2;
+                   this.team2.forEach(x => {
+                              x.sessionPlaytime = ((this.timeNow - x.connecttime) - 600);
+                              x.lastswitchtime = ((this.timeNow - x.lastswitchtime) - 600)
+                              x.kd = x.sessionKills / x.sessionDeaths;
+                              x.kpm = x.sessionKills / (x.roundTimeSeconds / 60);
+                            /*  this.players.forEach(y => {
+                                if(y.name === x.name) {
+                                  console.log("middle: " + x.kit + " y-kit: " + y.kit);
+                                  x.kit = y.kit;
+                                  console.log("inside: " + x.kit + " y-kit: " + y.kit);
+                                }
+                              });
+                              //this.players.findIndex(y => y.name === x.name) >= 1 ? x.kit = "found" : x.kit = 8;
+                                console.log(x.kit);*/
+                              
+                   });
+                },
             error => this.errorMessage = <any>error);
             
     
@@ -153,8 +189,8 @@ export class ScoreboardComponent implements OnInit {
                             this.playersWithId.players = this.players;
                             i++;
                     });
-           });
-           */
+           });*/
+           
           },
             error => this.errorMessage = <any>error);
   }
@@ -183,14 +219,9 @@ export class ScoreboardComponent implements OnInit {
       this.ticketsMax = this.serverinfo.rush.attackers.ticketsMax;
       this.bases = this.serverinfo.rush.defenders.bases;
       this.basesMax = this.serverinfo.rush.defenders.basesMax;
-     
     }
-    this.roundTimeFull = this.serverinfo.roundTimeFull * 1000;
-    this.roundTimeFullSeconds = this.serverinfo.roundTimeFull;
-    this.roundStartTime = this.serverinfo.roundStartTime;
-    this.roundTime  = new Date(1970, 0, 1).setSeconds(this.roundTimeFullSeconds);
 
-    
+    this.roundTimeFullSeconds = this.serverinfo.roundTimeFull;
 
   }
   ngOnDestroy() {

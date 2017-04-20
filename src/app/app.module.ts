@@ -23,6 +23,7 @@ import { StringFilterPipe } from './shared/filter.pipe';
 import { SortByPipe } from './shared/sort-by.pipe';
 import { AdminsComponent } from './admins/admins.component';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+import { DurationFormatPipe } from './shared/duration-format.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
     ScoreboardComponent,
     StringFilterPipe,
     SortByPipe,
-    AdminsComponent
+    AdminsComponent,
+    DurationFormatPipe
   ],
   imports: [
     BrowserModule,

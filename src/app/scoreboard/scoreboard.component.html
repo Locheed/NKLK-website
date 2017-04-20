@@ -1,5 +1,5 @@
 <div class="serverContainer">
-  <p class="server-info">Map: <span>{{currentMap}}</span></p><p class="server-info">Game mode: <span>{{currentMode}}</span></p><p class="server-info">Round time: <span>{{roundTime | date:'HH:mm:ss'}}</span></p>
+  <p class="server-info">Map: <span>{{currentMap}}</span></p><p class="server-info">Game mode: <span>{{currentMode}}</span></p><p class="server-info">Round time: <span>{{roundTimeFullSeconds | durationFormat: 's'}}</span></p>
   <p class="server-info">Players: <span>{{currentCountPlayers}} / {{maxPlayers}} ( {{waitingPlayers}} )</span></p>
 </div>
 <div class="statsContainer">
@@ -44,12 +44,12 @@
           <td>{{joining.name}}<span class="crown" *ngIf="adminsArray.indexOf(joining.name) > -1"><img src="../../assets/img/icons/crown.png" title="Admin"></span></td>
           <td>{{joining.sessionKills}}</td>
           <td>{{joining.sessionDeaths}}</td>
-          <td>{{joining.sessionKills / joining.sessionDeaths | number: '1.2-2'}}</td>
-          <td>{{joining.sessionKills / (joining.roundTimeSeconds / 60) | number: '1.2-2'}}</td>
+          <td>{{joining.kd | number: '1.2-2'}}</td>
+          <td>{{joining.kpm | number: '1.2-2'}}</td>
           <td class="mobile-screen">{{joining.sessionScore}}</td>
           <td class="small-screen">{{joining.ping}}</td>
-          <td class="small-screen">{{((timeNow - joining.connecttime) - 7860) * 1000  | date:'HH:mm:ss'}}</td>
-          <td class="small-screen">{{((timeNow - joining.lastswitchtime) - 7860) * 1000 | date:'HH:mm:ss'}}</td>
+          <td class="small-screen">{{joining.sessionPlaytime | durationFormat: 's'}}</td>
+          <td class="small-screen">{{joining.lastswitchtime | durationFormat: 's'}}</td>
           <td class="small-screen">{{joining.visits}}</td>
           <td class="small-screen">{{joining.teamkills}}</td>
           <td>
@@ -113,12 +113,12 @@
           <td>{{attacker.name}}<span class="crown" *ngIf="adminsArray.indexOf(attacker.name) > -1"><img src="../../assets/img/icons/crown.png" title="Admin"></span></td>
           <td>{{attacker.sessionKills}}</td>
           <td>{{attacker.sessionDeaths}}</td>
-          <td>{{attacker.sessionKills / attacker.sessionDeaths | number: '1.2-2'}}</td>
-          <td [ngClass] = "{'warningColorBoard' : attacker.sessionKills / (attacker.roundTimeSeconds / 60) >= warningMin && attacker.sessionKills / (attacker.roundTimeSeconds / 60) <= warningMax, 'alertColorBoard' : attacker.sessionKills / (attacker.roundTimeSeconds / 60) >= alertMin && attacker.sessionKills / (attacker.roundTimeSeconds / 60) <= alertMax}">{{attacker.sessionKills / (attacker.roundTimeSeconds / 60) | number: '1.2-2'}}</td>
+          <td>{{attacker.kd | number: '1.2-2'}}</td>
+          <td [ngClass] = "{'warningColorBoard' : attacker.kpm >= warningMin && attacker.kpm <= warningMax, 'alertColorBoard' : attacker.kpm >= alertMin && attacker.kpm <= alertMax}">{{attacker.kpm | number: '1.2-2'}}</td>
           <td class="mobile-screen">{{attacker.sessionScore}}</td>
           <td class="small-screen">{{attacker.ping}}</td>
-          <td class="small-screen">{{((timeNow - attacker.connecttime) - 7860) * 1000  | date:'HH:mm:ss'}}</td>
-          <td class="small-screen">{{((timeNow - attacker.lastswitchtime) - 7860) * 1000 | date:'HH:mm:ss'}}</td>
+          <td class="small-screen">{{attacker.sessionPlaytime | durationFormat: 's'}}</td>
+          <td class="small-screen">{{attacker.lastswitchtime | durationFormat: 's'}}</td>
           <td class="small-screen">{{attacker.visits}}</td>
           <td class="small-screen">{{attacker.teamkills}}</td>
           <td>
@@ -172,12 +172,12 @@
           <td>{{defender.name}}<span class="crown" *ngIf="adminsArray.indexOf(defender.name) > -1"><img src="../../assets/img/icons/crown.png" title="Admin"></span></td>
           <td>{{defender.sessionKills}}</td>
           <td>{{defender.sessionDeaths}}</td>
-          <td>{{defender.sessionKills / defender.sessionDeaths | number: '1.2-2'}}</td>
-          <td [ngClass] = "{'warningColorBoard' : defender.sessionKills / (defender.roundTimeSeconds / 60) >= warningMin && defender.sessionKills / (defender.roundTimeSeconds / 60) <= warningMax, 'alertColorBoard' : defender.sessionKills / (defender.roundTimeSeconds / 60) >= alertMin && defender.sessionKills / (defender.roundTimeSeconds / 60) <= alerMax}">{{defender.sessionKills / (defender.roundTimeSeconds / 60) | number: '1.2-2'}}</td>
+          <td>{{defender.kd | number: '1.2-2'}}</td>
+          <td [ngClass] = "{'warningColorBoard' : defender.kpm >= warningMin && defender.kpm <= warningMax, 'alertColorBoard' : defender.kpm >= alertMin && defender.kpm <= alerMax}">{{defender.kpm | number: '1.2-2'}}</td>
           <td class="mobile-screen">{{defender.sessionScore}}</td>
           <td class="small-screen">{{defender.ping}}</td>
-          <td class="small-screen">{{((timeNow - defender.connecttime) - 7860) * 1000  | date:'HH:mm:ss'}}</td>
-          <td class="small-screen">{{((timeNow - defender.lastswitchtime) - 7860) * 1000 | date:'HH:mm:ss'}}</td>
+          <td class="small-screen">{{defender.sessionPlaytime | durationFormat: 's'}}</td>
+          <td class="small-screen">{{defender.lastswitchtime | durationFormat: 's'}}</td>
           <td class="small-screen">{{defender.visits}}</td>
           <td class="small-screen">{{defender.teamkills}}</td>
           <td>

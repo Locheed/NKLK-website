@@ -36,21 +36,21 @@ private _warsowBattleblogEnd = "/1";*/
   }
 
   getTeam0() {
-    return Observable.timer(0, 10000).flatMap(() => this._http.get('/api/scores/0')
+    return Observable.timer(0, 8000).flatMap(() => this._http.get('/api/scores/0')
     .map((response: Response) => response.json()))
           //.do(data => console.log('Scores_1_All: ' + JSON.stringify(data)))
           .catch(this.handleError);
   }
   
   getTeam1() {
-    return Observable.timer(0, 10000).flatMap(() => this._http.get('/api/scores/1')
+    return Observable.timer(0, 8000).flatMap(() => this._http.get('/api/scores/1')
     .map((response: Response) => response.json()))
           //.do(data => console.log('Scores_1_All: ' + JSON.stringify(data)))
           .catch(this.handleError);
   }
   getTeam2() {
     //return this._http.get('/api/scores/2')
-    return Observable.timer(0, 10000).flatMap(() => this._http.get('/api/scores/2')
+    return Observable.timer(0, 8000).flatMap(() => this._http.get('/api/scores/2')
     .map((response: Response) => response.json()))
            //.do(data => console.log('Scores_2_All: ' + JSON.stringify(data)))
           .catch(this.handleError);
