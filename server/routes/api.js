@@ -89,7 +89,7 @@ router.route('/scores/:id').get(function(req, res) {
     if (err) {
        return res.send(err);
     }
-      setTimeout(() => { res.json(team) }, 2000);
+      setTimeout(() => { res.json(team) }, 1000);
       });
 });
 

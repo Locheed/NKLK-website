@@ -24,7 +24,7 @@ export class StatsService {
     return this._http.get(this._statsGetDatesUrl)
           .map((response: Response) => <IStats[]> response.json().data)
 
-          // .do(data => console.log('All: ' + JSON.stringify(data)))
+          //.do(data => console.log('All: ' + JSON.stringify(data)))
           .catch(this.handleError);
   }
 
@@ -57,7 +57,7 @@ export class StatsService {
   getByDate(date: string): Observable<IStats[]>  {
     return this._http.get(this._statsByDateUrl + date)
           .map((response: Response) => <IStats[]> response.json().data)
-        //  .do(data => console.log('All: ' + JSON.stringify(data)))
+          //.do(data => console.log('All: ' + JSON.stringify(data)))
           .catch(this.handleError);
   }
 

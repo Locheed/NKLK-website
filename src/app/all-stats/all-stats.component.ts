@@ -12,16 +12,16 @@ import { StatsService } from '../shared/stats.service';
 })
 export class AllStatsComponent implements OnInit {
 
-  private pageTitle: string = 'Server statistics All';
+  public pageTitle: string = 'Server statistics All';
   private errorMessage: string;
   @Input() stats: IStats[];
-  private page: number = 1;
-  private nameFilter: string;
-  private config: string;
+  public page: number = 1;
+  public nameFilter: string;
+  public config: string;
   private prefix: string = '-';
-  private asc: boolean = true;
-  private sortableCol: string;
-  private isLoading = true;
+  public asc: boolean = true;
+  public sortableCol: string;
+  public isLoading = true;
 
 
 

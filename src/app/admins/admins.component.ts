@@ -432,7 +432,7 @@ private admins = [
                               }
                               founder.playingTitle = " is offline";
                         }
-                        console.log(this.foundersPlaying);
+                        
                     });
                     this.admins.forEach(admin => {
                        if (this.playersPlaying.indexOf(admin.idNum) != -1) {

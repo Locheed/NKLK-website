@@ -64,7 +64,8 @@ private sortableCol: string;
          },
             error => this.errorMessage = <any>error);
     console.log('onDateChanged(): ', event.date, ' - jsdate: ', new Date(event.jsdate).toLocaleDateString(), ' - formatted: ', event.formatted, ' - epoc timestamp: ', event.epoc);
-  }
+    
+}
 
   onCalendarViewChanged(event:any) {
     let date: string = event.year;

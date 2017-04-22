@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
-import 'moment-duration-format';
-import * as moment from 'moment';
 
 import { ScoreboardService } from './scoreboard.service';
 
@@ -17,10 +15,10 @@ export class ScoreboardComponent implements OnInit {
 
   // Scoreboard vars
   private scores: any = [];
-  private team0: any = [];
-  private team1: any = [];
-  private team2: any = [];
-  private squadID: string;
+  public team0: any = [];
+  public team1: any = [];
+  public team2: any = [];
+  public squadID: string;
   private countTeam0: number;
   private countTeam1: number = 0;
   private countTeam2: number = 0;
@@ -30,42 +28,41 @@ export class ScoreboardComponent implements OnInit {
   private subscriptionTeam2: any;
   private subscriptionServerinfo: any;
   private timeNow: number = Date.now() / 1000;
-  private roundTimeFullSeconds: number;
+  public roundTimeFullSeconds: number;
   private roundStartTime: number;
-  private roundTime: any;
-  private hideJoining = true;
-  private isLoading = true;
+  public hideJoining = true;
+  public isLoading = true;
   private adminsArray = ['Elant0', 'DLight007', 'Locheed', 'xfileFIN', '-RK62-makkara', '-RK62-Nuukeri', '95-Ka1stu', 'ASniperKing',
                          'CrAzyW0mAn', 'EESTI-POLITSEI', 'HardMolli', 'HC_hitsari', 'J0loma', 'Luteenvarjo', 'Malakatta', 'Minefield78',
                          'Moksu-FIN', 'narkoze-LV', 'Nebuq', 'R33_GTRnismo', 'Retkis', 'rivakka', 'rytkonet', 'Samikill3r', 'Skaffa247',
                          'TheNmiet', 'Toebsel', 'Tokkeli', 'Vastaheitto', 'viljamimies', 'Vuuti', 'Westphald'];
   
-  /*
+ /* 
   private playersPlaying = [];
   private playersWithId: any = {};
   private players: any = [];
   private id;
   private battlebloginfo: any = [];
   private subscriptionbattleblog: any;
-  */
+ */ 
   // Alert range
-  private warningMin: number = 2.4; // 2.2 - 2.4 kpm. warning coloring
-  private warningMax: number = 2.6;
-  private alertMin: number = 2.7; // 2.5 - 50 kpm. alert coloring
-  private alertMax: number = 50;
+  public warningMin: number = 2.4; // 2.2 - 2.4 kpm. warning coloring
+  public warningMax: number = 2.6;
+  public alertMin: number = 2.7; // 2.5 - 50 kpm. alert coloring
+  public alertMax: number = 50;
 
   // Serverinfo vars
-  private serverinfo: any = [];
-  private currentMap: string;
-  private currentMode: string;
-  private maxPlayers: number;
-  private waitingPlayers: number;
-  private roundTimeFull: any;
-  private currentCountPlayers: number;
-  private tickets: number = 0;
-  private ticketsMax: number = 0;
-  private bases: number = 0;
-  private basesMax: number = 0;
+  public serverinfo: any = [];
+  public currentMap: string;
+  public currentMode: string;
+  public maxPlayers: number;
+  public waitingPlayers: number;
+  public roundTimeFull: any;
+  public currentCountPlayers: number;
+  public tickets: number = 0;
+  public ticketsMax: number = 0;
+  public bases: number = 0;
+  public basesMax: number = 0;
 
 /*
   // Vars for sorting
@@ -123,7 +120,7 @@ export class ScoreboardComponent implements OnInit {
                    this.team0 = team0;
                    this.team0.forEach(x => {
                               x.sessionPlaytime = ((this.timeNow - x.connecttime) - 600);
-                              x.lastswitchtime = ((this.timeNow - x.lastswitchtime) - 600)
+                              (x.lastswitchtime > 0) ? x.lastswitchtime = ((this.timeNow - x.lastswitchtime) - 600) : x.lastswitchtime = 0;
                               x.kd = x.sessionKills / x.sessionDeaths;
                               x.kpm = x.sessionKills / (x.roundTimeSeconds / 60);
                    });
@@ -152,7 +149,7 @@ export class ScoreboardComponent implements OnInit {
                               x.lastswitchtime = ((this.timeNow - x.lastswitchtime) - 600)
                               x.kd = x.sessionKills / x.sessionDeaths;
                               x.kpm = x.sessionKills / (x.roundTimeSeconds / 60);
-                            /*  this.players.forEach(y => {
+                         /*     this.players.forEach(y => {
                                 if(y.name === x.name) {
                                   console.log("middle: " + x.kit + " y-kit: " + y.kit);
                                   x.kit = y.kit;
