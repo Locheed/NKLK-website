@@ -1,0 +1,26 @@
+<div id="footer">
+  <div class="left-col">
+    <h4>Terms of Service</h4>
+    <p>We provide this website AS IT IS. Niskalaukaus.fi is a volunteer based hobby and no uptime is guaranteed.</p>
+  </div>
+  <div class="center-col">
+    <h4>Sitemap:</h4>
+    <ul>
+      <li><a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+    <li><a [routerLink]="['/scoreboard']" [routerLinkActive]="['active']">Scoreboard</a></li>
+    <li><a [routerLink]="['/stats/byDate']" [routerLinkActive]="['active']">Statistics</a></li>
+    <li><a [routerLink]="['/admins']" [routerLinkActive]="['active']">Admins</a></li>
+    </ul>
+  </div>
+  <div class="right-col">
+    <h4>Privacy Policy</h4>
+    <p>We do not store any user identity data from you. We how ever are using your ip address to locate your service providers country of origin.
+      This is to help us provide better user experience to our live scoreboard users. please read the whole <a [routerLink]="['/privacy']" [routerLinkActive]="['active']">Privacy Policy</a> for more information.
+    </p>
+  </div>
+  
+  
+</div>
+<div id="copy">
+    <p>&copy; {{year}} Niskalaukaus.fi, all rights reserved.</p>
+</div>

@@ -185,4 +185,19 @@ function setData(body) {
 }
 
 
+/*
+function blogRequest() {
+      request({
+          url: http://battlelog.battlefield.com/bf4/warsawoverviewpopulate/218914927/01,
+          json: true
+          //gzip: true
+      }, function (error, response, body) {
+          if (!error && response.statusCode === 200) {
+              //console.log("body", body) // Print the json response
+          }
+        }
+      });
+  }*/
+
+
 module.exports = router;

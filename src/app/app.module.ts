@@ -24,6 +24,8 @@ import { SortByPipe } from './shared/sort-by.pipe';
 import { AdminsComponent } from './admins/admins.component';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { DurationFormatPipe } from './shared/duration-format.pipe';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { DurationFormatPipe } from './shared/duration-format.pipe';
     StringFilterPipe,
     SortByPipe,
     AdminsComponent,
-    DurationFormatPipe
+    DurationFormatPipe,
+    PrivacyComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ import { DurationFormatPipe } from './shared/duration-format.pipe';
       { path: 'stats/byDate', component: StatsComponent },
       { path: 'stats/AllTime', component: AllStatsComponent },
       { path: 'stats/bySoldierName', component: StatsSoldiernameComponent },
-      { path: 'admins', component: AdminsComponent }
+      { path: 'admins', component: AdminsComponent },
+      { path: 'privacy', component: PrivacyComponent }
     ]),
     Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
   ],
