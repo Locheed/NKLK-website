@@ -17,11 +17,11 @@ export class StatsSoldiernameComponent implements OnInit {
   constructor(private _StatsService: StatsService) { }
 
   
-  getByName(soldierName: string) {
+  getByName(personaname: string) {
     this.isLoading = true;
-    this._StatsService.getBySoldierName(soldierName)
+    this._StatsService.getBySoldierName(personaname)
         .subscribe((...stats) => {
-                      this.stats = stats;
+                      this.stats = stats[0];
                       this.isLoading = false;
         }, error => this.errorMessage = <any>error);
   }

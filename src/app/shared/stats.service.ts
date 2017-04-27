@@ -10,8 +10,8 @@ import { IStats } from '../stats/stats';
 @Injectable()
 export class StatsService {
   private _statsGetDatesUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getDates';
-  private _statsByAllTimeUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTime';
-  private _statsSoldierNameUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTime?soldierName=';
+  private _statsByAllTimeUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTimeSQL';
+  private _statsSoldierNameUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTimeSQL?soldierName=';
   private _statsByYearUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByYear?year=';
   private _statsByDateUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByDate?logDate=';
 
@@ -36,11 +36,11 @@ export class StatsService {
           .catch(this.handleError);
   }
 
-  getBySoldierName(soldierName: string): Observable<IStats[]>  {
-    return this._http.get(this._statsSoldierNameUrl + soldierName)
+  getBySoldierName(personaname: string): Observable<IStats[]>  {
+    return this._http.get(this._statsSoldierNameUrl + personaname)
           .map((response: Response) =>
           <IStats[]> response.json().data)
-          .do(data => console.log('All: ' + JSON.stringify(data)))
+          //.do(data => console.log('All: ' + JSON.stringify(data)))
           .catch(this.handleError);
 
 
