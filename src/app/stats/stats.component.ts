@@ -38,7 +38,7 @@ private config: string;
 private prefix: string = '-';
 private asc: boolean = true;
 private sortableCol: string;
-
+public serverMessage: string;
 
   constructor(private _StatsService: StatsService) { }
 
@@ -61,6 +61,9 @@ private sortableCol: string;
     this._StatsService.getByDate(date)
         .subscribe(stats => {
           this.stats = stats;
+          if (!this.stats) {
+          this.serverMessage = "Nothing here at the moment... Refreshing databases... try later or pick another date.";
+        } else {this.serverMessage = ''}
          },
             error => this.errorMessage = <any>error);
     console.log('onDateChanged(): ', event.date, ' - jsdate: ', new Date(event.jsdate).toLocaleDateString(), ' - formatted: ', event.formatted, ' - epoc timestamp: ', event.epoc);

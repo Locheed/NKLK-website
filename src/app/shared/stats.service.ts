@@ -16,8 +16,11 @@ export class StatsService {
   private _statsByDateUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByDate?logDate=';
 
 
+
+
   constructor(private _http: Http) { }
 
+stats: IStats[];
 
 
   getDates(): Observable<IStats[]>  {
@@ -56,9 +59,20 @@ export class StatsService {
 
   getByDate(date: string): Observable<IStats[]>  {
     return this._http.get(this._statsByDateUrl + date)
-          .map((response: Response) => <IStats[]> response.json().data)
+          .map((response: Response) => { 
+            if (response.json().success === false) {  // Check if database is down or no data available.
+                console.warn(response.json().message);  // Log error message.
+                this.stats = <IStats[]> response.json().data;
+                return this.stats;
+            } else {
+            
+              this.stats = <IStats[]> response.json().data;
+              return this.stats;
+          }
+          })
           //.do(data => console.log('All: ' + JSON.stringify(data)))
           .catch(this.handleError);
+          
   }
 
 
