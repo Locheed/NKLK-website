@@ -26,6 +26,7 @@ import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { DurationFormatPipe } from './shared/duration-format.pipe';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { FooterComponent } from './footer/footer.component';
+import { ToplistComponent } from './toplist/toplist.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FooterComponent } from './footer/footer.component';
     AdminsComponent,
     DurationFormatPipe,
     PrivacyComponent,
-    FooterComponent
+    FooterComponent,
+    ToplistComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,7 @@ import { FooterComponent } from './footer/footer.component';
       { path: 'stats/byDate', component: StatsComponent },
       { path: 'stats/AllTime', component: AllStatsComponent },
       { path: 'stats/bySoldierName', component: StatsSoldiernameComponent },
+      { path: 'stats/halloffame', component: ToplistComponent },
       { path: 'admins', component: AdminsComponent },
       { path: 'privacy', component: PrivacyComponent }
     ]),

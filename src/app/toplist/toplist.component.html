@@ -1,0 +1,43 @@
+<h1>Hall Of Fame</h1>
+<hr>
+<h3>{{ month }} {{ year }}</h3>
+
+<div id="date"></div>
+<div class="statsContainer">
+  <table class="stats-table">
+    <thead>
+      <th>#</th>
+      <th class="mobile-screen">Country</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Kills</th>
+      <th>Deaths</th>
+      <th class="mobile-screen">K/D</th>
+      <th class="mobile-screen">Visits</th>
+      <th class="small-screen">Playtime</th>
+    </thead>
+    <tbody *ngIf="serverMessage">
+      <tr>
+        <td colspan="15" class="loading">{{serverMessage}}</td>
+      </tr>
+    </tbody>
+    <tbody>
+      
+      <tr *ngFor="let top of toplist | orderBy: ['-score']; let i = index;">
+          <td>{{ i + 1 }}</td>
+          <td *ngIf="top.country == 'na'" class="mobile-screen"><img src="../../assets/img/flags/code/na.gif" alt="Country: ?">{{ top.country}}</td>
+          <td *ngIf="top.country != 'na'" class="mobile-screen"><img src="http://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-283-20170323/public/common/flags/{{top.country}}.gif" alt="{{top.country}}" title="{{top.country}}"></td>                                                                               
+          <td>{{ top.name }}</td>
+          <td>{{ top.score }}</td>
+          <td>{{ top.kills }}</td>
+          <td>{{ top.deaths }}</td>
+          <td class="mobile-screen">{{ top.kd | number: '1.2-2'}}</td>
+          <td class="mobile-screen">{{ top.visits }}</td>
+          <td class="small-screen">{{ top.playtime | durationFormat: 's':'days'}}</td>
+        </tr>
+
+
+    </tbody>
+  </table>
+</div>
+

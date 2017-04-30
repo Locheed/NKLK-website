@@ -6,14 +6,16 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 import { IStats } from '../stats/stats';
+import { IToplist } from '../toplist/toplist';
 
 @Injectable()
 export class StatsService {
-  private _statsGetDatesUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getDates';
+  //private _statsGetDatesUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getDates';
   private _statsByAllTimeUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTimeSQL';
   private _statsSoldierNameUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTimeSQL?soldierName=';
-  private _statsByYearUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByYear?year=';
-  private _statsByDateUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByDate?logDate=';
+  //private _statsByYearUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByYearSQL?year=';
+  private _statsByDateUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByDateSQL?logDate=';
+  //private _statsByMonthUrl = 'http://niskalaukausdataapi.azurewebsites.net/api/Niskalaukaus/getByMonth?year=2017&month=';
 
 
 
@@ -21,15 +23,17 @@ export class StatsService {
   constructor(private _http: Http) { }
 
 stats: IStats[];
+toplist: IToplist[];
 
 
+  /* Not used
   getDates(): Observable<IStats[]>  {
     return this._http.get(this._statsGetDatesUrl)
           .map((response: Response) => <IStats[]> response.json().data)
 
           //.do(data => console.log('All: ' + JSON.stringify(data)))
           .catch(this.handleError);
-  }
+  } */
 
 
   getByAllTime(): Observable<IStats[]>  {
@@ -49,11 +53,26 @@ stats: IStats[];
 
 
   }
-
+  /* Not in use at the moment.
   getByYear(date: string): Observable<IStats[]>  {
     return this._http.get(this._statsByYearUrl + date)
           .map((response: Response) => <IStats[]> response.json().data)
         //  .do(data => console.log('All: ' + JSON.stringify(data)))
+          .catch(this.handleError);
+  } */
+
+  /* Not used right now.
+  getByMonth(month: number): Observable<IStats[]>  {
+    return this._http.get(this._statsByMonthUrl + month)
+          .map((response: Response) => <IStats[]> response.json().data)
+        //  .do(data => console.log('All: ' + JSON.stringify(data)))
+          .catch(this.handleError);
+  }*/
+
+  getTopList(): Observable<IToplist[]> {
+    return this._http.get('/api/stats/halloffame')
+          .map((response: Response) => <IToplist[]> response.json())
+          //.do(data => console.log('All: ' + JSON.stringify(data)))
           .catch(this.handleError);
   }
 

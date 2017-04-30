@@ -69,14 +69,14 @@ public serverMessage: string;
     console.log('onDateChanged(): ', event.date, ' - jsdate: ', new Date(event.jsdate).toLocaleDateString(), ' - formatted: ', event.formatted, ' - epoc timestamp: ', event.epoc);
     
 }
-
+/* Not in use.
   onCalendarViewChanged(event:any) {
     let date: string = event.year;
     this._StatsService.getByYear(date)
         .subscribe(stats => this.stats = stats,
             error => this.errorMessage = <any>error);
   console.log('onCalendarViewChanged(): Year: ', event.year, ' - month: ', event.month, ' - first: ', event.first, ' - last: ', event.last);
-}
+} */
 
 
 

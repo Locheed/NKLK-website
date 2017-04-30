@@ -1,5 +1,5 @@
 <div class="serverContainer">
-  <p class="server-info">Map: <span>{{currentMap}}</span></p><p class="server-info">Game mode: <span>{{currentMode}}</span></p><p class="server-info">Round time: <span>{{roundTimeFullSeconds | durationFormat: 's'}}</span></p>
+  <p class="server-info">Map: <span>{{currentMap}}</span></p><p class="server-info">Game mode: <span>{{currentMode}}</span></p><p class="server-info">Round time: <span>{{roundTimeFullSeconds | durationFormat: 's':'hhmmss'}}</span></p>
   <p class="server-info">Players: <span>{{currentCountPlayers}} / {{maxPlayers}} ( {{waitingPlayers}} )</span></p>
 </div>
 <div class="statsContainer">
@@ -25,7 +25,7 @@
       <th>Action</th>
     </thead>
     <tbody>
-      <tr *ngFor="let joining of team0 | orderBy: ['-sessionScore']">
+      <tr *ngFor="let joining of team0 | orderBy: ['-sessionScore'];  trackBy: trackById;">
           <td *ngIf="joining.alive == false" class="skull" ><img src="../../assets/img/icons/skull.png" alt="R.I.P" title="R.I.P"></td>
           <td *ngIf="joining.alive == true && joining.country == 'na'"><img src="../../assets/img/flags/code/na.gif" alt="Country: ?"></td>
           <td *ngIf="joining.alive == true && joining.country != 'na'" ><img src="http://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-283-20170323/public/common/flags/{{joining.country}}.gif" alt="{{joining.country}} : {{joining.ip}}" title="{{joining.country}} : {{joining.ip}}"></td>
@@ -47,9 +47,9 @@
           <td>{{joining.kd | number: '1.2-2'}}</td>
           <td>{{joining.kpm | number: '1.2-2'}}</td>
           <td class="mobile-screen">{{joining.sessionScore}}</td>
-          <td class="small-screen">{{joining.ping}}</td>
-          <td class="small-screen">{{joining.sessionPlaytime | durationFormat: 's'}}</td>
-          <td class="small-screen">{{joining.lastswitchtime | durationFormat: 's'}}</td>
+          <td class="small-screen" [ngClass] = "{'warningColorBoard' : joining.ping >= warningMinPing && joining.ping <= warningMaxPing, 'alertColorBoard' : joining.ping >= alertMinPing && joining.ping <= alertMaxPing}">{{joining.ping}}</td>
+          <td class="small-screen">{{joining.sessionPlaytime | durationFormat: 's':'hhmmss'}}</td>
+          <td class="small-screen">{{joining.lastswitchtime | durationFormat: 's':'hhmmss'}}</td>
           <td class="small-screen">{{joining.visits}}</td>
           <td class="small-screen">{{joining.teamkills}}</td>
           <td>
@@ -94,7 +94,7 @@
       </tr>
     </tbody>
     <tbody>
-      <tr *ngFor="let attacker of team1 | orderBy: ['-sessionScore']">
+      <tr *ngFor="let attacker of team1 | orderBy: ['-sessionScore']; trackBy: trackById;">
           <td *ngIf="attacker.alive == false" class="skull" ><img src="../../assets/img/icons/skull.png" alt="R.I.P" title="R.I.P"></td>
           <td *ngIf="attacker.alive == true && attacker.country == 'na'"><img src="../../assets/img/flags/code/na.gif" alt="Country: ?"></td>
           <td *ngIf="attacker.alive == true && attacker.country != 'na'" ><img src="http://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-283-20170323/public/common/flags/{{attacker.country}}.gif" alt="{{attacker.country}} : {{attacker.ip}}" title="{{attacker.country}} : {{attacker.ip}}"></td>
@@ -116,9 +116,9 @@
           <td>{{attacker.kd | number: '1.2-2'}}</td>
           <td [ngClass] = "{'warningColorBoard' : attacker.kpm >= warningMin && attacker.kpm <= warningMax, 'alertColorBoard' : attacker.kpm >= alertMin && attacker.kpm <= alertMax}">{{attacker.kpm | number: '1.2-2'}}</td>
           <td class="mobile-screen">{{attacker.sessionScore}}</td>
-          <td class="small-screen">{{attacker.ping}}</td>
-          <td class="small-screen">{{attacker.sessionPlaytime | durationFormat: 's'}}</td>
-          <td class="small-screen">{{attacker.lastswitchtime | durationFormat: 's'}}</td>
+          <td class="small-screen" [ngClass] = "{'warningColorBoard' : attacker.ping >= warningMinPing && attacker.ping <= warningMaxPing, 'alertColorBoard' : attacker.ping >= alertMinPing && attacker.ping <= alertMaxPing}">{{attacker.ping}}</td>
+          <td class="small-screen">{{attacker.sessionPlaytime | durationFormat: 's':'hhmmss'}}</td>
+          <td class="small-screen">{{attacker.lastswitchtime | durationFormat: 's':'hhmmss'}}</td>
           <td class="small-screen">{{attacker.visits}}</td>
           <td class="small-screen">{{attacker.teamkills}}</td>
           <td>
@@ -153,7 +153,7 @@
       <th>Action</th>
     </thead>
     <tbody>
-      <tr *ngFor="let defender of team2 | orderBy: ['-sessionScore']">
+      <tr *ngFor="let defender of team2 | orderBy: ['-sessionScore']; trackBy: trackById;">
           <td *ngIf="defender.alive == false"  class="skull" ><img src="../../assets/img/icons/skull.png" alt="R.I.P" title="R.I.P"></td>
           <td *ngIf="defender.alive == true && defender.country == 'na'"><img src="../../assets/img/flags/code/na.gif" alt="Country: ?"></td>
           <td *ngIf="defender.alive == true && defender.country != 'na'" ><img src="http://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-283-20170323/public/common/flags/{{defender.country}}.gif" alt="{{defender.country}} : {{defender.ip}}" title="{{defender.country}} : {{defender.ip}}"></td>
@@ -175,9 +175,9 @@
           <td>{{defender.kd | number: '1.2-2'}}</td>
           <td [ngClass] = "{'warningColorBoard' : defender.kpm >= warningMin && defender.kpm <= warningMax, 'alertColorBoard' : defender.kpm >= alertMin && defender.kpm <= alerMax}">{{defender.kpm | number: '1.2-2'}}</td>
           <td class="mobile-screen">{{defender.sessionScore}}</td>
-          <td class="small-screen">{{defender.ping}}</td>
-          <td class="small-screen">{{defender.sessionPlaytime | durationFormat: 's'}}</td>
-          <td class="small-screen">{{defender.lastswitchtime | durationFormat: 's'}}</td>
+          <td class="small-screen" [ngClass] = "{'warningColorBoard' : defender.ping >= warningMinPing && defender.ping <= warningMaxPing, 'alertColorBoard' : defender.ping >= alertMinPing && defender.ping <= alertMaxPing}">{{defender.ping}}</td>
+          <td class="small-screen">{{defender.sessionPlaytime | durationFormat: 's':'hhmmss'}}</td>
+          <td class="small-screen">{{defender.lastswitchtime | durationFormat: 's':'hhmmss'}}</td>
           <td class="small-screen">{{defender.visits}}</td>
           <td class="small-screen">{{defender.teamkills}}</td>
           <td>

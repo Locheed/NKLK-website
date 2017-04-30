@@ -50,6 +50,10 @@ export class ScoreboardComponent implements OnInit {
   public warningMax: number = 2.6;
   public alertMin: number = 2.7; // 2.5 - 50 kpm. alert coloring
   public alertMax: number = 50;
+  public warningMinPing: number = 100; // 100 - 199 ping. warning coloring
+  public warningMaxPing: number = 199;
+  public alertMinPing: number = 200; // 200 - 500 ping. alert coloring
+  public alertMaxPing: number = 500;
 
   // Serverinfo vars
   public serverinfo: any = [];
@@ -107,6 +111,10 @@ export class ScoreboardComponent implements OnInit {
     }
   */
 
+// ngFor trackby players guid id. Less DOM changes.
+trackById(index, stat) {
+  return stat.guid;
+}
   ngOnInit() {
     
     

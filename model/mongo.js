@@ -2,7 +2,7 @@ const mongoose    =   require("mongoose");
 
 // create instance of Schema
 const mongoSchema =   mongoose.Schema;
-// create schema
+// create schema for players
 const playerSchema  = new mongoSchema({
   "rank": Number,
   "name": String,
@@ -32,11 +32,27 @@ const playerSchema  = new mongoSchema({
   timestamps: true
 });
 
-const update = {
-   
-};
+const toplistSchema  = new mongoSchema({
+  "id": Number,
+  "name": String,
+  "country": String,
+  "kills": Number,
+  "deaths": Number,
+  "score": Number,
+  "visits": Number,
+  "playtime": Number,
+  "last_active": Number,
+  "updated_at": { type: Date, expires: 5}
+},
+{
+  timestamps: true
+});
 
 // create model if not exists.
 let Player = mongoose.model('Player',playerSchema);
+let TopList = mongoose.model('TopList',toplistSchema);
 
-module.exports = Player;
+module.exports = {
+  Player: Player,
+  TopList: TopList
+};
