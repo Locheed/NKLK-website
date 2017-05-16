@@ -11,8 +11,8 @@ const API = require('./keys.js');
 const model = require('../../model/mongo');
 
 
-//mongoose.connect('mongodb://localhost:27017/nklk');
-mongoose.connect(API.mongoUrl);
+mongoose.connect('mongodb://localhost:27017/nklk');
+//mongoose.connect(API.mongoUrl);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -219,7 +219,7 @@ function setData(body) {
 getTopList();
 setInterval(() => {
   getTopList();
-}, 10 * 30000);
+}, 10 * 20000);
 
   function getTopList() {
       request({

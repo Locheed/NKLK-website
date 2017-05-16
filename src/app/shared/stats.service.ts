@@ -10,12 +10,12 @@ import { IToplist } from '../toplist/toplist';
 
 @Injectable()
 export class StatsService {
-  //private _statsGetDatesUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getDates';
-  private _statsByAllTimeUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTimeSQL';
-  private _statsSoldierNameUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTimeSQL?soldierName=';
-  //private _statsByYearUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByYearSQL?year=';
-  private _statsByDateUrl = 'http://niskalaukausdataapi.azurewebsites.net:80/api/Niskalaukaus/getByDateSQL?logDate=';
-  //private _statsByMonthUrl = 'http://niskalaukausdataapi.azurewebsites.net/api/Niskalaukaus/getByMonth?year=2017&month=';
+  //private _statsGetDatesUrl = 'http://niskalaukausstatsapi.azurewebsites.net:80/api/Niskalaukaus/getDates';
+  private _statsByAllTimeUrl = 'http://niskalaukausstatsapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTimeSQL';
+  private _statsSoldierNameUrl = 'http://niskalaukausstatsapi.azurewebsites.net:80/api/Niskalaukaus/getByAllTimeSQL?soldierName=';
+  //private _statsByYearUrl = 'http://niskalaukausstatsapi.azurewebsites.net:80/api/Niskalaukaus/getByYearSQL?year=';
+  private _statsByDateUrl = 'http://niskalaukausstatsapi.azurewebsites.net:80/api/Niskalaukaus/getByDateSQL?logDate=';
+  //private _statsByMonthUrl = 'http://niskalaukausstatsapi.azurewebsites.net/api/Niskalaukaus/getByMonth?year=2017&month=';
 
 
 
