@@ -329,6 +329,17 @@ private admins = [
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "jorma_lumimies",
+            realName: "",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "1269186144",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
             nick: "-RK62-makkara",
             realName: "",
             role: "Admin",
@@ -381,17 +392,6 @@ private admins = [
             playingTitle: " is offline",
             idNum: "987294553",
             flag: "../../assets/img/flags/latvia.jpg"
-        },
-        {
-            url: "",
-            nick: "",
-            realName: "",
-            role: "",
-            status: "",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "",
-            flag: "../../assets/img/flags/european.jpg"
         },
         {
             url: "",

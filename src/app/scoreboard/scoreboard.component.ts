@@ -35,7 +35,7 @@ export class ScoreboardComponent implements OnInit {
   private adminsArray = ['Elant0', 'DLight007', 'Locheed', 'xfileFIN', '-RK62-makkara', '-RK62-Nuukeri', '95-Ka1stu', 'ASniperKing',
                          'CrAzyW0mAn', 'EESTI-POLITSEI', 'HardMolli', 'HC_hitsari', 'J0loma', 'Luteenvarjo', 'Malakatta', 'Minefield78',
                          'Moksu-FIN', 'narkoze-LV', 'Nebuq', 'R33_GTRnismo', 'Retkis', 'rivakka', 'rytkonet', 'Samikill3r', 'Skaffa247',
-                         'TheNmiet', 'Toebsel', 'Tokkeli', 'Vastaheitto', 'viljamimies', 'Vuuti', 'Westphald'];
+                         'TheNmiet', 'Toebsel', 'Tokkeli', 'Vastaheitto', 'viljamimies', 'Vuuti', 'Westphald', 'jorma_lumimies'];
   
  /* 
   private playersPlaying = [];
