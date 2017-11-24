@@ -69,6 +69,28 @@ private founders = [
             playingTitle: " is offline",
             idNum: "806262072",
             flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "jorma_lumimies",
+            realName: "",
+            role: "Founder",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "1269186144",
+            flag: "../../assets/img/flags/finland.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/vastaheitto.jpg",
+            nick: "Vastaheitto",
+            realName: "xxxxx",
+            role: "Founder",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: "188907812",
+            flag: "../../assets/img/flags/finland.jpg"
         }
     ];
 
@@ -284,17 +306,6 @@ private admins = [
             flag: "../../assets/img/flags/finland.jpg"
         },*/
         {
-            url: "../../assets/img/profiles/vastaheitto.jpg",
-            nick: "Vastaheitto",
-            realName: "xxxxx",
-            role: "Admin",
-            status: "ACTIVE",
-            playing: false,
-            playingTitle: " is offline",
-            idNum: "188907812",
-            flag: "../../assets/img/flags/finland.jpg"
-        },
-        {
             url: "../../assets/img/profiles/viljamimies.jpg",
             nick: "viljamimies",
             realName: "xxxxx",
@@ -329,14 +340,25 @@ private admins = [
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",
-            nick: "jorma_lumimies",
+            nick: "MrNicke",
             realName: "",
             role: "Admin",
             status: "ACTIVE",
             playing: false,
             playingTitle: " is offline",
-            idNum: "1269186144",
-            flag: "../../assets/img/flags/finland.jpg"
+            idNum: "234889891",
+            flag: "../../assets/img/flags/sweden.jpg"
+        },
+        {
+            url: "../../assets/img/profiles/noprofile.jpg",
+            nick: "22Damnation",
+            realName: "",
+            role: "Admin",
+            status: "ACTIVE",
+            playing: false,
+            playingTitle: " is offline",
+            idNum: " 1084452677",
+            flag: "../../assets/img/flags/united_kingdom.jpg"
         },
         {
             url: "../../assets/img/profiles/noprofile.jpg",

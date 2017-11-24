@@ -5,7 +5,7 @@ import { IStats } from '../stats/stats';
 @Pipe({
     name: 'stringFilter'
 })
-export class StringFilterPipe implements PipeTransform {
+export class FilterPipe implements PipeTransform {
 
     transform(value: IStats[], filterBy: string): IStats[] {
         filterBy = filterBy ? filterBy.toLocaleLowerCase(): null;

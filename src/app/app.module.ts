@@ -19,10 +19,11 @@ import { DiscordwidgetComponent } from './home/discordwidget/discordwidget.compo
 import { NewsComponent } from './home/news/news.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ScoreboardService } from './scoreboard/scoreboard.service';
-import { StringFilterPipe } from './shared/filter.pipe';
+import { FilterPipe } from './shared/filter.pipe';
 import { SortByPipe } from './shared/sort-by.pipe';
 import { AdminsComponent } from './admins/admins.component';
-import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga'
 import { DurationFormatPipe } from './shared/duration-format.pipe';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { FooterComponent } from './footer/footer.component';
@@ -41,7 +42,7 @@ import { ToplistComponent } from './toplist/toplist.component';
     DiscordwidgetComponent,
     NewsComponent,
     ScoreboardComponent,
-    StringFilterPipe,
+    FilterPipe,
     SortByPipe,
     AdminsComponent,
     DurationFormatPipe,

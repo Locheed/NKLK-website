@@ -11,7 +11,7 @@ const API = require('./keys.js');
 const model = require('../../model/mongo');
 
 
-//mongoose.connect('mongodb://localhost:27017/nklk');
+// mongoose.connect('mongodb://localhost:27017/nklk');
 mongoose.connect(API.mongoUrl);
 
 const db = mongoose.connection;
