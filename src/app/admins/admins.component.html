@@ -1,32 +1,38 @@
 <h2 class="title-bar">Founders</h2>
 <div class="admins">
   <div class="profile-card" *ngFor="let founder of founders" [ngStyle]="{'background-image': 'url(' + founder.flag + ')'}">
-      <span class="offline" [ngClass]="{ 'online': founder.playing }" title="{{founder.nick}}{{founder.playingTitle}}"></span>
-      <div class="img-container">
-        <img [src]=founder.url alt="">
-      </div>
-      <div class="details-container">
-        <span class="title nick"><a href="{{blog}}{{founder.nick}}" target="_blank">{{founder.nick}}</a></span>
-        <span class="title name">{{founder.name}}</span>
-        <span class="title role">{{founder.role}}</span>
-        <span *ngIf="founder.status != '' " [style.color]="founder.status === 'ACTIVE' ? '#6ea023' : '#dd0048'"class="title status">{{founder.status}}</span>
-      </div>
+    <span class="offline" [ngClass]="{ 'online': founder.playing }" title="{{founder.nick}}{{founder.playingTitle}}"></span>
+    <div class="img-container">
+      <img [src]=founder.url alt="">
+    </div>
+    <div class="details-container">
+      <span class="title nick">
+        <a href="{{blog}}{{founder.nick}}" target="_blank">{{founder.nick}}</a>
+      </span>
+      <span class="title name">{{founder.name}}</span>
+      <span class="title role">{{founder.role}}</span>
+      <span *ngIf="founder.status != '' " [style.color]="founder.status === 'ACTIVE' ? '#6ea023' : '#dd0048'" class="title status">{{founder.status}}</span>
+    </div>
   </div>
 </div>
 <hr class="line">
 <h2 class="title-bar">Admins</h2>
 <div class="admins">
-  <div class="profile-card" *ngFor="let admin of admins"  [ngStyle]="{'background-image': 'url(' + admin.flag + ')'}">
-      <span class="offline" [ngClass]="{ 'online': admin.playing }" title="{{admin.nick}}{{admin.playingTitle}}"></span>
-      <div class="img-container">
-        <img [src]=admin.url alt="">
-      </div>
-      <div class="details-container">
-        <span class="title nick"><a href="{{blog}}{{admin.nick}}" target="_blank">{{admin.nick}}</a></span>
-        <span class="title name">{{admin.name}}</span>
-        <span class="title role">{{admin.role}}</span>
-        <span *ngIf="admin.status != '' " [style.color]="admin.status === 'ACTIVE' ? '#6ea023' : '#dd0048'"  class="title status">{{admin.status}}</span>
-      </div>
+  <div class="profile-card" *ngFor="let admin of admins" [ngStyle]="{'background-image': 'url(' + admin.flag + ')'}">
+    <span class="offline" [ngClass]="{ 'online': admin.playing }" title="{{admin.nick}}{{admin.playingTitle}}"></span>
+    <div class="img-container">
+      <img [src]=admin.url alt="">
+    </div>
+    <div class="details-container">
+      <span class="title nick">
+        <a href="{{blog}}{{admin.nick}}" target="_blank">{{admin.nick}}</a>
+      </span>
+      <span class="title name">{{admin.name}}</span>
+      <span class="title role">{{admin.role}}</span>
+      <span *ngIf="admin.status != '' " [style.color]="admin.status === 'ACTIVE' ? '#6ea023' : '#dd0048'" class="title status">{{admin.status}}</span>
+    </div>
   </div>
 </div>
-<p class="disclaimer">Flag backgrounds with the courtesy of <a href="http://www.freeflagicons.com">www.freeflagicons.com</a></p>
+<p class="disclaimer">Flag backgrounds with the courtesy of
+  <a href="http://www.freeflagicons.com">www.freeflagicons.com</a>
+</p>
