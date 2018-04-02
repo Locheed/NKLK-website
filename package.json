@@ -26,7 +26,6 @@
     "angulartics2": "^4.0.4",
     "body-parser": "^1.16.0",
     "core-js": "^2.4.1",
-    "crypto": "1.0.1",
     "express": "^4.14.0",
     "geoip-lite-country": "^1.1.5",
     "jshint": "^2.9.4",
