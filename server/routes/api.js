@@ -166,10 +166,19 @@ function setData(body) {
       //console.log(item);
 
       // Get location data by ip address.
+      // Try catch added to find out problems with geoip location.
       let geo = {};
-      if (item.ip !== null && item.ip !== "") {
-        geo = geoip.lookup(item.ip.toString());
-      } else {
+      try {
+        if (item.ip !== null && item.ip !== "") {
+          geo = geoip.lookup(item.ip.toString());
+        } else {
+          geo = {
+            country: "na"
+          };
+        }
+      } catch (e) {
+        console.log("Geo-ip error: ", e);
+      } finally {
         geo = {
           country: "na"
         };
