@@ -97,7 +97,7 @@ router.route("/serverinfo").get(function(req, res) {
                   }
                 );
           };    */
-        console.log("Serverinfo data: " + JSON.stringify(body, undefined, 4));
+        //console.log("Serverinfo data: " + JSON.stringify(body, undefined, 4));
       } else if (error) {
         console.log("Something went wrong fetching serverinfo" + error);
       }
@@ -178,7 +178,6 @@ function setData(body) {
         }
       } catch (e) {
         console.log("Geo-ip error: ", e);
-      } finally {
         geo = {
           country: "na"
         };
@@ -216,7 +215,7 @@ function setData(body) {
           if (err) {
             console.log("Update failed." + err);
           } else {
-            console.log("saved: " + model);
+            //console.log("saved: " + model);
           }
         }
       );
