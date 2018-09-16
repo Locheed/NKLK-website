@@ -69,13 +69,17 @@ router.route("/serverinfo").get(function(req, res) {
       url: API.XFILE_SERVER + API.XFILE_APIKEY,
       json: true,
       gzip: true
+
       //headers: {
+
       //"content-type": "application/json",
+
       //},
     },
     function(error, response, body) {
       if (!error && response.statusCode === 200) {
         res.json(body.data.snapshot);
+
         /* Small test to try to mix apidata to one table. Todo.
           for (let player of body.data.snapshot.teamInfo) {
                 Player.findOneAndUpdate(
@@ -97,6 +101,7 @@ router.route("/serverinfo").get(function(req, res) {
                   }
                 );
           };    */
+
         //console.log("Serverinfo data: " + JSON.stringify(body, undefined, 4));
       } else if (error) {
         console.log("Something went wrong fetching serverinfo" + error);
@@ -140,6 +145,7 @@ function makeRequest() {
     {
       url: genAPI,
       json: true
+
       //gzip: true
     },
     function(error, response, body) {
@@ -148,7 +154,7 @@ function makeRequest() {
         model.Player.remove({}, function(err, result) {
           if (err) console.log("Deletion failed:" + err);
           else {
-            console.log("Removed all: " + result);
+            //console.log("Removed all: " + result);
 
             setData(body);
           }
@@ -162,25 +168,21 @@ function makeRequest() {
 
 function setData(body) {
   if (body.datalist[0] !== null && body.datalist.length > 0) {
+    console.log("Players on server: ", body.datalist.length);
     for (let item of body.datalist) {
       //console.log(item);
 
       // Get location data by ip address.
       // Try catch added to find out problems with geoip location.
-      let geo = {};
+      let geo = {
+        country: "na"
+      };
       try {
         if (item.ip !== null && item.ip !== "") {
           geo = geoip.lookup(item.ip.toString());
-        } else {
-          geo = {
-            country: "na"
-          };
         }
       } catch (e) {
         console.log("Geo-ip error: ", e);
-        geo = {
-          country: "na"
-        };
       }
       model.Player.findOneAndUpdate(
         { name: item.name },
@@ -205,7 +207,7 @@ function setData(body) {
             numberOfFocedSwitches: item.numberOfFocedSwitches,
             numberOfSwitches: item.numberOfSwitches,
             ip: item.ip,
-            country: geo.country.toLowerCase(),
+            country: geo.country.toLowerCase() || "na",
             visits: item.visits,
             roundTimeSeconds: item.roundTimeSeconds
           }
@@ -216,6 +218,9 @@ function setData(body) {
             console.log("Update failed." + err);
           } else {
             //console.log("saved: " + model);
+            console.log(
+              `Name: ${model.name}, ip: ${model.ip}, country: ${model.country}`
+            );
           }
         }
       );
@@ -236,6 +241,7 @@ function getTopList() {
     {
       url: genTopAPI,
       json: true
+
       //gzip: true
     },
     function(error, response, body) {
@@ -243,13 +249,13 @@ function getTopList() {
         model.TopList.remove({}, function(err, result) {
           if (err) console.log("Deletion failed:" + err);
           else {
-            console.log("Removed all: " + result);
+            //console.log("Removed all: " + result);
 
             setTopListData(body);
           }
         });
       } else {
-        console.log("Something went wrong with polling: " + error);
+        console.log("Something went wrong with polling HallOfFame: " + error);
       }
     }
   );
@@ -279,9 +285,13 @@ function setTopListData(body) {
         function(err, model) {
           if (err) {
             console.log("Update failed." + err);
-          } else {
-            console.log("saved: " + model);
           }
+
+          // else {
+
+          //   console.log("saved: " + model);
+
+          // }
         }
       );
     }

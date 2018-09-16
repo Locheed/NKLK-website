@@ -103,17 +103,17 @@ export class AdminsComponent implements OnInit {
       idNum: "354678995",
       flag: "../../assets/img/flags/finland.jpg"
     },
-    {
-      url: "../../assets/img/profiles/crazywoman.jpg",
-      nick: "CrAzyW0mAn",
-      realName: "xxxxx",
-      role: "Admin",
-      status: "ACTIVE",
-      playing: false,
-      playingTitle: " is offline",
-      idNum: "357568163",
-      flag: "../../assets/img/flags/finland.jpg"
-    },
+    // {
+    //   url: "../../assets/img/profiles/crazywoman.jpg",
+    //   nick: "CrAzyW0mAn",
+    //   realName: "xxxxx",
+    //   role: "Admin",
+    //   status: "ACTIVE",
+    //   playing: false,
+    //   playingTitle: " is offline",
+    //   idNum: "357568163",
+    //   flag: "../../assets/img/flags/finland.jpg"
+    // },
     // {
     //     url: "../../assets/img/profiles/noprofile.jpg",
     //     nick: "EESTI-POLITSEI",
@@ -125,17 +125,17 @@ export class AdminsComponent implements OnInit {
     //     idNum: "1057594252",
     //     flag: "../../assets/img/flags/estonia.jpg"
     // },
-    {
-      url: "../../assets/img/profiles/noprofile.jpg",
-      nick: "HardMolli",
-      realName: "xxxxx",
-      role: "Admin",
-      status: "ACTIVE",
-      playing: false,
-      playingTitle: " is offline",
-      idNum: "505751513",
-      flag: "../../assets/img/flags/finland.jpg"
-    },
+    // {
+    //   url: "../../assets/img/profiles/noprofile.jpg",
+    //   nick: "HardMolli",
+    //   realName: "xxxxx",
+    //   role: "Admin",
+    //   status: "ACTIVE",
+    //   playing: false,
+    //   playingTitle: " is offline",
+    //   idNum: "505751513",
+    //   flag: "../../assets/img/flags/finland.jpg"
+    // },
     {
       url: "../../assets/img/profiles/hc_hitsari.jpg",
       nick: "HC-hitsari",
@@ -180,17 +180,17 @@ export class AdminsComponent implements OnInit {
       idNum: "1055867487",
       flag: "../../assets/img/flags/finland.jpg"
     },
-    {
-      url: "../../assets/img/profiles/noprofile.jpg",
-      nick: "Moksu-FIN",
-      realName: "xxxxx",
-      role: "Admin",
-      status: "ACTIVE",
-      playing: false,
-      playingTitle: " is offline",
-      idNum: "356382977",
-      flag: "../../assets/img/flags/finland.jpg"
-    },
+    // {
+    //   url: "../../assets/img/profiles/noprofile.jpg",
+    //   nick: "Moksu-FIN",
+    //   realName: "xxxxx",
+    //   role: "Admin",
+    //   status: "ACTIVE",
+    //   playing: false,
+    //   playingTitle: " is offline",
+    //   idNum: "356382977",
+    //   flag: "../../assets/img/flags/finland.jpg"
+    // },
     // {
     //     url: "../../assets/img/profiles/nebuq.jpg",
     //     nick: "Nebuq",
@@ -356,39 +356,39 @@ export class AdminsComponent implements OnInit {
       idNum: " 1084452677",
       flag: "../../assets/img/flags/united_kingdom.jpg"
     },
-    {
-      url: "../../assets/img/profiles/noprofile.jpg",
-      nick: "Bellwhacker",
-      realName: "xxxxx",
-      role: "Admin",
-      status: "ACTIVE",
-      playing: false,
-      playingTitle: " is offline",
-      idNum: "215806199",
-      flag: "../../assets/img/flags/united_kingdom.jpg"
-    },
-    {
-      url: "../../assets/img/profiles/noprofile.jpg",
-      nick: "advancedpuddle6",
-      realName: "xxxxx",
-      role: "Admin",
-      status: "ACTIVE",
-      playing: false,
-      playingTitle: " is offline",
-      idNum: "827273359",
-      flag: "../../assets/img/flags/finland.jpg"
-    },
-    {
-      url: "../../assets/img/profiles/noprofile.jpg",
-      nick: "ElleThePhant",
-      realName: "xxxxx",
-      role: "Admin",
-      status: "ACTIVE",
-      playing: false,
-      playingTitle: " is offline",
-      idNum: "365956026",
-      flag: "../../assets/img/flags/sweden.jpg"
-    },
+    // {
+    //   url: "../../assets/img/profiles/noprofile.jpg",
+    //   nick: "Bellwhacker",
+    //   realName: "xxxxx",
+    //   role: "Admin",
+    //   status: "ACTIVE",
+    //   playing: false,
+    //   playingTitle: " is offline",
+    //   idNum: "215806199",
+    //   flag: "../../assets/img/flags/united_kingdom.jpg"
+    // },
+    // {
+    //   url: "../../assets/img/profiles/noprofile.jpg",
+    //   nick: "advancedpuddle6",
+    //   realName: "xxxxx",
+    //   role: "Admin",
+    //   status: "ACTIVE",
+    //   playing: false,
+    //   playingTitle: " is offline",
+    //   idNum: "827273359",
+    //   flag: "../../assets/img/flags/finland.jpg"
+    // },
+    // {
+    //   url: "../../assets/img/profiles/noprofile.jpg",
+    //   nick: "ElleThePhant",
+    //   realName: "xxxxx",
+    //   role: "Admin",
+    //   status: "ACTIVE",
+    //   playing: false,
+    //   playingTitle: " is offline",
+    //   idNum: "365956026",
+    //   flag: "../../assets/img/flags/sweden.jpg"
+    // },
     // {
     //     url: "../../assets/img/profiles/noprofile.jpg",
     //     nick: "-RK62-makkara",
@@ -443,6 +443,28 @@ export class AdminsComponent implements OnInit {
       playingTitle: " is offline",
       idNum: "987294553",
       flag: "../../assets/img/flags/latvia.jpg"
+    },
+    {
+      url: "../../assets/img/profiles/noprofile.jpg",
+      nick: "Tippitapitus",
+      realName: "xxxxx",
+      role: "Admin",
+      status: "ACTIVE",
+      playing: false,
+      playingTitle: " is offline",
+      idNum: "975174925",
+      flag: "../../assets/img/flags/finland.jpg"
+    },
+    {
+      url: "../../assets/img/profiles/noprofile.jpg",
+      nick: "kiviviki",
+      realName: "xxxxx",
+      role: "Admin",
+      status: "ACTIVE",
+      playing: false,
+      playingTitle: " is offline",
+      idNum: "776396592",
+      flag: "../../assets/img/flags/finland.jpg"
     }
     // {
     //   url: "",
@@ -457,7 +479,7 @@ export class AdminsComponent implements OnInit {
     // }
   ];
 
-  constructor(private _scoreboardservice: ScoreboardService) {}
+  constructor(private _scoreboardservice: ScoreboardService) { }
 
   ngOnInit() {
     this.subscriptionPlayers = this._scoreboardservice
@@ -504,7 +526,7 @@ export class AdminsComponent implements OnInit {
       }, error => (this.errorMessage = <any>error));
   }
 
-  ngDoCheck() {}
+  ngDoCheck() { }
 
   ngOnDestroy() {
     this.subscriptionPlayers.unsubscribe();

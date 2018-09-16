@@ -35,13 +35,9 @@ export class ScoreboardComponent implements OnInit {
     "Locheed",
     "xfileFIN",
     "ASniperKing",
-    "CrAzyW0mAn",
-    "HardMolli",
     "HC_hitsari",
     "Luteenvarjo",
-    "Malakatta",
     "Minefield78",
-    "Moksu-FIN",
     "narkoze-LV",
     "Retkis",
     "Vastaheitto",
@@ -50,9 +46,8 @@ export class ScoreboardComponent implements OnInit {
     "jorma_lumimies",
     "MrNicke",
     "22Damnation",
-    "Bellwhacker",
-    "advancedpuddle6",
-    "ElleThePhant"
+    "Tippitapitus",
+    "kiviviki"
   ];
 
   /*
@@ -98,10 +93,10 @@ export class ScoreboardComponent implements OnInit {
   private blogUrl: string = "http://battlelog.battlefield.com/bf4/user/";
   private istatsUrlFirst: string = "https://i-stats.net/index.php?action=pcheck&player=";
   private istatsUrlSec: string = "&game=BF4&sub=Check+Player";
-  private metaBansUrl: string = "http://metabans.com/search/?phrase=";
+  private bf4dbUrl: string = "https://bf4db.com";
   private fairplayUrl: string = "https://www.247fairplay.com/CheatDetector/";
 
-  constructor(private _scoreboardservice: ScoreboardService) {}
+  constructor(private _scoreboardservice: ScoreboardService) { }
 
   // Sorting config
   // sort(event, sortBy) {
