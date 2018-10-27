@@ -8,6 +8,7 @@ const API = require("./keys.js");
 
 const model = require("../../model/mongo");
 
+//mongoose.connect(API.mongoUrlAtlas, { useNewUrlParser: true });
 //mongoose.connect("mongodb://localhost:27017/nklk");
 mongoose.connect(API.mongoUrl, { useMongoClient: true });
 
@@ -63,7 +64,7 @@ let genTopAPI;
 
 // XFILES server api request
 
-router.route("/serverinfo").get(function(req, res) {
+router.route("/serverinfo").get(function (req, res) {
   request.post(
     {
       url: API.XFILE_SERVER + API.XFILE_APIKEY,
@@ -76,7 +77,7 @@ router.route("/serverinfo").get(function(req, res) {
 
       //},
     },
-    function(error, response, body) {
+    function (error, response, body) {
       if (!error && response.statusCode === 200) {
         res.json(body.data.snapshot);
 
@@ -111,8 +112,8 @@ router.route("/serverinfo").get(function(req, res) {
 });
 
 /* GET Hall of Fame players. */
-router.route("/stats/halloffame").get(function(req, res) {
-  model.TopList.find({}, function(err, topPlayers) {
+router.route("/stats/halloffame").get(function (req, res) {
+  model.TopList.find({}, function (err, topPlayers) {
     if (err) {
       return res.send(err);
     }
@@ -123,8 +124,8 @@ router.route("/stats/halloffame").get(function(req, res) {
 });
 
 /* GET teams by id */
-router.route("/scores/:id").get(function(req, res) {
-  model.Player.find({ teamId: req.params.id }, function(err, team) {
+router.route("/scores/:id").get(function (req, res) {
+  model.Player.find({ teamId: req.params.id }, function (err, team) {
     if (err) {
       return res.send(err);
     }
@@ -148,10 +149,10 @@ function makeRequest() {
 
       //gzip: true
     },
-    function(error, response, body) {
+    function (error, response, body) {
       if (!error && response.statusCode === 200) {
         //console.log("body", body) // Print the json response
-        model.Player.remove({}, function(err, result) {
+        model.Player.remove({}, function (err, result) {
           if (err) console.log("Deletion failed:" + err);
           else {
             //console.log("Removed all: " + result);
@@ -167,7 +168,7 @@ function makeRequest() {
 }
 
 function setData(body) {
-  if (body.datalist[0] !== null && body.datalist.length > 0) {
+  if (body.datalist) {
     console.log("Players on server: ", body.datalist.length);
     for (let item of body.datalist) {
       //console.log(item);
@@ -213,7 +214,7 @@ function setData(body) {
           }
         },
         { new: true, upsert: true },
-        function(err, model) {
+        function (err, model) {
           if (err) {
             console.log("Update failed." + err);
           } else {
@@ -244,9 +245,9 @@ function getTopList() {
 
       //gzip: true
     },
-    function(error, response, body) {
+    function (error, response, body) {
       if (!error && response.statusCode === 200) {
-        model.TopList.remove({}, function(err, result) {
+        model.TopList.remove({}, function (err, result) {
           if (err) console.log("Deletion failed:" + err);
           else {
             //console.log("Removed all: " + result);
@@ -262,7 +263,7 @@ function getTopList() {
 }
 
 function setTopListData(body) {
-  if (body.datalist[0] !== null && body.datalist.length > 0) {
+  if (body.datalist) {
     for (let item of body.datalist) {
       //console.log(item);
 
@@ -282,7 +283,7 @@ function setTopListData(body) {
           }
         },
         { new: true, upsert: true },
-        function(err, model) {
+        function (err, model) {
           if (err) {
             console.log("Update failed." + err);
           }
